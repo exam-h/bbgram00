@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+
+<head>
+	<title>Bbgram</title>
+</head>
+
+<body>
+	<div class="users-new-wrapper" layout:fragment="contents">
+		<div class="container">
+			<div class="row p-form-top d-none d-lg-block d-xl-block d-xxl-block"></div>
+			<div class="row">
+				<main class="col-md-4 mx-auto">
+					<h1 class="text-center text-white">Sign in</h1>
+					<form method="post" th:action="@{/user}" th:object="${form}">
+						<div layout:replace="~{layouts/common::messages}"></div>
+						<div class="mb-3">
+							<label class="form-label text-white" for="user_email">メールアドレス</label>
+							<input type="text" class="form-control" th:field="*{email}" />
+							<p th:if="${#fields.hasErrors('email')}" class="error-message" th:errors="*{email}"></p>
+						</div>
+						<div class="mb-3">
+							<label class="form-label text-white" for="user_password">パスワード</label>
+							<input class="form-control" type="password" th:field="*{password}" />
+							<p th:if="${#fields.hasErrors('password')}" class="error-message" th:errors="*{password}"></p>
+						</div>
+						<div class="mb-3">
+							<label class="form-label text-white" for="user_password_confirmation">パスワード
+								(確認用)</label>
+							<input type="password" class="form-control" th:field="*{passwordConfirmation}" />
+							<p th:if="${#fields.hasErrors('passwordConfirmation')}" class="error-message"
+								th:errors="*{passwordConfirmation}"></p>
+						</div>
+						<div class="mb-3">
+							<label class="form-label text-white" for="user_tel">電話番号</label>
+							<input type="text" class="form-control" th:field="*{tel}" />
+							<p th:if="${#fields.hasErrors('tel')}" class="error-message" th:errors="*{tel}"></p>
+						</div>
+						<div class="mb-3">
+							<label class="form-label text-white" for="user_name">登録名</label>
+							<input type="text" class="form-control" th:field="*{name}" />
+							<p th:if="${#fields.hasErrors('name')}" class="error-message" th:errors="*{name}"></p>
+						</div>
+						<div class="mb-3">
+							<label class="form-label text-white" for="user_age">年齢</label>
+							<input type="text" class="form-control" th:field="*{age}" />
+							<p th:if="${#fields.hasErrors('age')}" class="error-message" th:errors="*{age}"></p>
+						</div>
+						<div class="mb-3">
+							<label class="form-label text-white" for="user_age">生年月日(西暦)</label>
+							<input type="text" class="form-control" th:field="*{birthDate}" />
+							<p th:if="${#fields.hasErrors('birthDate')}" class="error-message" th:errors="*{birthDate}"></p>
+						</div>
+						<div class="row">
+							<div class="col">
+								<label class="form-label text-white" for="user_mainArea">活動拠点</label>
+							</div>
+							<div class="col">
+								<label class="form-label text-white" for="prefecture">都道府県</label>
+								<input type="text" class="form-control" id="prefecture" th:field="*{prefecture}" />
+							</div>
+							<div class="col">
+								<label class="form-label text-white" for="user_erea">市・区</label>
+								<input type="text" class="form-control" id="user_erea" th:field="*{erea}" />
+							</div>
+						</div>
+
+						<div class="mb-3">
+							<label class="form-label text-white" for="user_experience">学生時代の野球経験</label>
+							<input type="text" class="form-control" th:field="*{experience}" />
+							<p th:if="${#fields.hasErrors('experience')}" class="error-message" th:errors="*{experience}"></p>	
+						</div>
+						
+						<div class="mb-3">
+							<label class="form-label text-white" for="user_position">ポジション</label>
+							<input type="text" class="form-control" th:field="*{position}" />
+							<p th:if="${#fields.hasErrors('name')}" class="error-message" th:errors="*{position}"></p>	
+						</div>
+						
+						<div class="row">
+							<div class="col">
+								<label class="form-label text-white" for="user_throwing-and-batting">投打</label>
+							</div>
+							<div class="col">
+								<label class="form-label text-white" for="user_throw">投</label>
+								<input type="text" class="form-control" id="user_throw" th:field="*{throwingAndBatting}" />
+							</div>
+							<div class="col">
+								<label class="form-label text-white" for="user_bat">打</label>
+								<input type="text" class="form-control" id="user_bat" th:field="*{throwingAndBatting}" />
+							</div>
+							<div class="mb-3">
+								<label class="form-label text-white" for="user_introduction">自己PR</label>
+								<input type="text" class="form-control" th:field="*{introduction}" />
+							</div>
+						</div>
+						
+						<input type="submit" value="登録" class="btn w-100 btn-outline-light" />
+					</form>
+				</main>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
