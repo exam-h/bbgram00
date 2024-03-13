@@ -56,10 +56,6 @@ public class UsersController {
 		User entity = new User(email, name, passwordEncoder.encode(password), Authority.ROLE_USER);
 		repository.saveAndFlush(entity);
 
-		model.addAttribute("hasMessage", true);
-		model.addAttribute("class", "alert-info");
-		model.addAttribute("message", "ユーザー登録が完了しました。");
-
 		return "redirect:/mypage";
 	}
 }

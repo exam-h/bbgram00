@@ -14,8 +14,24 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ms-auto">
-					<th>
-
+					<th:block sec:authorize="isAuthenticated()">
+						<li class="nav-item">
+							<img src="/images/icons/helpmember.png" th:src="@{/images/icons/helpmember.png}">
+						</li>
+						<li class="nav-item">
+							<img src="/images/icons/member.png" th:src="@{/images/icons/member.png}">
+						</li>
+						<li class="nav-item">
+							<img src="/images/icons/exhibision.png" th:src="@{/images/icons/exhibision.png}">
+						</li>
+						<li class="nav-item">
+							<a th:href="@{/logout}" class="nav-link convert" data-method="post"
+								th:data-_csrf="${_csrf.token}">
+								<img src="/images/icons/logout.png" th:src="@{/images/icons/logout.png}">
+							</a>
+						</li>
+					</th:block>
+					<th:block sec:authorize="!isAuthenticated()">
 						<li class="nav-item">
 							<a class="nav-link" th:href="@{/users/new}">
 								<img src="/images/icons/register.png" th:src="@{/images/icons/register.png}">
@@ -26,7 +42,7 @@
 								<img src="/images/icons/login.png" th:src="@{/images/icons/login.png}">
 							</a>
 						</li>
-					</th>
+					</th:block>
 				</ul>
 			</div>
 		</div>
