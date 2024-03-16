@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+
+	<head>
+		<title>bbgram</title>
+	</head>
+
+	<body>
+		<div class="topics-index-wrapper" layout:fragment="contents">
+			<div class="container">
+				<div class="row p-form-top d-none d-lg-block d-xl-block d-xxl-block"></div>
+				<div class="row">
+					<main class="col-md-3 mx-auto">
+						<a class="mypage-profile">
+							<img src="/images/icons/pp.png" th:src="@{/images/icons/pp.png}">
+						</a>
+						<a class="form-label text-black" "mypage-btn-perssonal">
+							<a class="btn w-100 btn-outline-black" href="/mypage/pic">画像設定</a>
+						</a>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
