@@ -14,7 +14,15 @@
 				<div class="row">
 					<div class="col-md-4">
 						<div class="mypage-profile">
-							<img src="/images/icons/pp.png" th:src="@{/images/icons/pp.png}">
+							<th:block th:if="${form == null}">
+								<img src="/images/icons/pp.png" th:src="@{/images/icons/pp.png}">
+							</th:block>
+							<th:block th:unless="${form == null}">
+								<img src="" th:if="${@environment.getProperty('image.local')}" th:src="${form.imageData}"
+								 class="icon" />
+							</th:block>
+												
+<!--<img src="/images/icons/pp.png" th:src="@{/images/icons/pp.png}">-->
 								<a class="form-label text-black" "mypage-btn-perssonal">
 									<a class="btn w-100 btn-outline-black" href="/mypage/pic">画像設定</a>
 								</a>

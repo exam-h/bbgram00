@@ -7,7 +7,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -60,13 +59,20 @@ public class MypageController {
 		Authentication authentication = (Authentication) principal;
 		UserInf user = (UserInf) authentication.getPrincipal();
 
-		Iterable<Mypage> mypage = repository.findAllByOrderByUpdatedAtDesc();
-		List<MypageForm> list = new ArrayList<>();
-		for (Mypage entity : mypage) {
-			MypageForm form = getMypage(user, entity);
-			list.add(form);
+		List<Mypage> mypage = (List<Mypage>)repository.findAllByOrderByUpdatedAtDesc();
+		MypageForm form = null;
+		//if(mypage!=null ){
+		if(mypage.size() != 0){//if(list.size() !== 0){
+			Mypage image = mypage.get(0);
+			form = getMypage(user, image);
 		}
-		model.addAttribute("list", list);
+		
+		//List<MypageForm> list = new ArrayList<>();
+		//for (Mypage entity : mypage) {
+			
+			//list.add(form);
+		//}
+		model.addAttribute("form", form);
 
 		return "mypage/index";
 	}
