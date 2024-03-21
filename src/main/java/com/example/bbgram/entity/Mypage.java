@@ -31,9 +31,6 @@ public class Mypage extends AbstractEntity implements Serializable {
 	@Column(nullable = false)
 	private String path;
 
-	@Column(nullable = false, length = 1000)
-	private String description;
-
 	@Column
 	private Double latitude;
 

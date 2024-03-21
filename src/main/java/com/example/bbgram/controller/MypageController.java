@@ -126,18 +126,18 @@ public class MypageController {
 	@GetMapping(path = "/mypage/pic")
 	public String newMypage(Model model) {
 		model.addAttribute("form", new MypageForm());
-		return "/mypage/pic";
+		return "mypage/pic";
 	}
 
 	@RequestMapping(value = "/mypage", method = RequestMethod.POST)
 	public String create(Principal principal, @Validated @ModelAttribute("form") MypageForm form, BindingResult result,
 			Model model, @RequestParam MultipartFile image, RedirectAttributes redirAttrs)
 			throws IOException {
-		if (result.hasErrors()) {
+ 		if (result.hasErrors()) {
 			model.addAttribute("hasMessage", true);
 			model.addAttribute("class", "alert-danger");
 			model.addAttribute("message", "画像の登録に失敗しました。");
-			return "/mypage/pic";
+			return "mypage/pic";
 		}
 
 		boolean isImageLocal = false;
@@ -156,7 +156,7 @@ public class MypageController {
 		} else {
 			entity.setPath("");
 		}
-		entity.setDescription(form.getDescription());
+		
 		repository.saveAndFlush(entity);
 
 		redirAttrs.addFlashAttribute("hasMessage", true);

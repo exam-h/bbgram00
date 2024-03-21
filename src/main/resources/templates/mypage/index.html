@@ -10,15 +10,33 @@
 	<body>
 		<div class="topics-index-wrapper" layout:fragment="contents">
 			<div class="container">
-				<div class="row p-form-top d-none d-lg-block d-xl-block d-xxl-block"></div>
+				<!--<div class="row p-form-top d-none d-lg-block d-xl-block d-xxl-block"></div>-->
 				<div class="row">
-					<main class="col-md-3 mx-auto">
-						<a class="mypage-profile">
+					<div class="col-md-4">
+						<div class="mypage-profile">
 							<img src="/images/icons/pp.png" th:src="@{/images/icons/pp.png}">
-						</a>
+								<a class="form-label text-black" "mypage-btn-perssonal">
+									<a class="btn w-100 btn-outline-black" href="/mypage/pic">画像設定</a>
+								</a>
+							<!--<input type="submit" value="登録" class="btn w-100 btn-outline-light" />
+							<href="/mypage/pic">-->
+						</div>
+					</div>	
+					<div class="col-md-4">
+						<h1>個人データ(/users/newより参照)</h1>
+						<p class="border">登録名 </p>
+						<p class="border-top">年齢</p>
+						<p class="border-bottom">学生時代の野球経験</p>
+						<p class="border-right">ポジション</p>
+						<p class="border-left">投打</p>
+					</div>
+					<div class="col-md-4">
+						<h1>所属チーム</h1>
+						<p class="border">/teampage/editより参照</p>
+						<p class="border">チームページへ</p>
 						<a class="form-label text-black" "mypage-btn-perssonal">
-							<a class="btn w-100 btn-outline-black" href="/mypage/pic">画像設定</a>
-						</a>
+							<a class="btn w-100 btn-outline-black" href="/teampage/edit">チーム編集</a>
+					</div>
 				</div>
 			</div>
 		</div>

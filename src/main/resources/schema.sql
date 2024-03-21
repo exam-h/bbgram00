@@ -7,28 +7,29 @@ DROP TABLE IF EXISTS matchforms CASCADE;
 DROP TABLE IF EXISTS users_teams CASCADE;
 
 CREATE TABLE IF NOT EXISTS users (
-  userid SERIAL NOT NULL,
+  user_id SERIAL NOT NULL,
+  authority VARCHAR(10) NOT NULL,
   name VARCHAR(10) NOT NULL,
   age INT NOT NULL,
-  birthdate DATE NOT NULL,
+  birth_date DATE NOT NULL,
   prefecture VARCHAR(5) NOT NULL,
-  erea VARCHAR(10) NOT NULL,
-  email VARCHAR(30) NOT NULL,
+  city VARCHAR(10) NOT NULL,
+  username VARCHAR(30) NOT NULL,
   password VARCHAR(255) NOT NULL,
-  picture VARCHAR(100) NOT NULL,
+  picture VARCHAR(100) ,
   position VARCHAR(30) NOT NULL,
-  exeperience VARCHAR(10) NOT NULL,
-  throwimg VARCHAR(3) NOT NULL,
+  experience VARCHAR(10) NOT NULL,
+  throwing VARCHAR(3) NOT NULL,
   batting VARCHAR(3) NOT NULL,
   introduction VARCHAR(1000) NOT NULL,
-  tel VARCHAR(10) NOT NULL,
+  tel VARCHAR(15) NOT NULL,
   created_at TIMESTAMP NOT NULL,
   updated_at TIMESTAMP NOT NULL,
-  PRIMARY KEY (id)
+  PRIMARY KEY (user_id)
 );
 
 CREATE TABLE IF NOT EXISTS teams (
-  teamid SERIAL NOT NULL,
+  id SERIAL NOT NULL,
   name VARCHAR(15) NOT NULL,
   read VARCHAR(15) NOT NULL,
   prefecture VARCHAR(5) NOT NULL,
@@ -90,6 +91,4 @@ CREATE TABLE IF NOT EXISTS matchforms (
   PRIMARY KEY (id)
 );
 
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO bbgram;
-GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO bbgram;
 

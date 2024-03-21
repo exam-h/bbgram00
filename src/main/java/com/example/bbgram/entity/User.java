@@ -34,11 +34,23 @@ public class User extends AbstractEntity implements UserDetails, UserInf {
 		super();
 	}
 
-	public User(String email, String name, String password, Authority authority) {
+	public User(String email, String name, String password, Authority authority,String age,  
+				String prefecture, String city, String experience,  
+				String throwing, String batting, String position, String tel, String introduction, String birthDate ){
 		this.username = email;
 		this.name = name;
 		this.password = password;
 		this.authority = authority;
+		this.age = age;
+		this.prefecture = prefecture;
+		this.city = city;
+		this.experience = experience;
+		this.throwing = throwing;
+		this.batting = batting;
+		this.position = position;
+		this.tel = tel;
+		this.introduction = introduction;
+		this.birthDate = birthDate;
 	}
 
 	@Id
@@ -58,6 +70,36 @@ public class User extends AbstractEntity implements UserDetails, UserInf {
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private Authority authority;
+	
+	@Column(nullable = false)
+	private String age;
+	
+	@Column(nullable = false)
+	private String prefecture;
+	
+	@Column(nullable = false)
+	private String city;
+	
+	@Column(nullable = false)
+	private String experience;
+	
+	@Column(nullable = false)
+	private String throwing;
+	
+	@Column(nullable = false)
+	private String batting;
+	
+	@Column(nullable = false)
+	private String position;
+	
+	@Column(nullable = false)
+	private String birthDate;
+	
+	@Column(nullable = false)
+	private String tel;
+	
+	@Column(nullable = false)
+	private String introduction;
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

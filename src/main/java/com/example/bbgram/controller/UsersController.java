@@ -37,11 +37,21 @@ public class UsersController {
 	public String create(@Validated @ModelAttribute("form") UserForm form, BindingResult result, Model model,
 			RedirectAttributes redirAttrs) {
 		String name = form.getName();
-		String email = form.getEmail();
+		String username = form.getUsername();
 		String password = form.getPassword();
 		String passwordConfirmation = form.getPasswordConfirmation();
+		String prefecture = form.getPrefecture();
+		String age = form.getAge();
+		String city = form.getCity();
+		String experience = form.getExperience();
+		String throwing = form.getThrowing();  
+		String batting = form.getBatting();
+		String position = form.getPosition();
+		String tel = form.getTel();
+		String introduction = form.getIntroduction();
+		String  birthDate = form.getBirthDate();
 
-		if (repository.findByUsername(email) != null) {
+		if (repository.findByUsername(username) != null) {
 			FieldError fieldError = new FieldError(result.getObjectName(), "email", "その E メールはすでに使用されています。");
 			result.addError(fieldError);
 		}
@@ -53,7 +63,8 @@ public class UsersController {
 			return "users/new";
 		}
 
-		User entity = new User(email, name, passwordEncoder.encode(password), Authority.ROLE_USER);
+		User entity = new User(username, name, passwordEncoder.encode(password), Authority.ROLE_USER, prefecture,
+				city, experience, throwing, batting, position, tel, introduction, birthDate,age);
 		repository.saveAndFlush(entity);
 
 		return "redirect:/mypage";

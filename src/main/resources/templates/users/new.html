@@ -16,83 +16,85 @@
 					<form method="post" th:action="@{/user}" th:object="${form}">
 						<div layout:replace="~{layouts/common::messages}"></div>
 						<div class="mb-3">
-							<label class="form-label text-white" for="user_email">メールアドレス</label>
-							<input type="text" class="form-control" th:field="*{email}" />
-							<p th:if="${#fields.hasErrors('email')}" class="error-message" th:errors="*{email}"></p>
+							<label class="form-label text-white" for="user_username">メールアドレス</label>
+							<input type="text" class="form-control" th:field="*{username}" value="hideless1@gmail.com"/>
+							<p th:if="${#fields.hasErrors('username')}" class="error-message" th:errors="*{username}" ></p>
 						</div>
 						<div class="mb-3">
 							<label class="form-label text-white" for="user_password">パスワード</label>
-							<input class="form-control" type="password" th:field="*{password}" />
-							<p th:if="${#fields.hasErrors('password')}" class="error-message" th:errors="*{password}"></p>
+							<input class="form-control" type="password" th:field="*{password}" value="h0d8f1m5"/>
+							<p th:if="${#fields.hasErrors('password')}" class="error-message" th:errors="*{password}" ></p>
 						</div>
 						<div class="mb-3">
 							<label class="form-label text-white" for="user_password_confirmation">パスワード
 								(確認用)</label>
-							<input type="password" class="form-control" th:field="*{passwordConfirmation}" />
+							<input type="password" class="form-control" th:field="*{passwordConfirmation}" value="h0d8f1m5" />
 							<p th:if="${#fields.hasErrors('passwordConfirmation')}" class="error-message"
 								th:errors="*{passwordConfirmation}"></p>
 						</div>
 						<div class="mb-3">
 							<label class="form-label text-white" for="user_tel">電話番号</label>
-							<input type="text" class="form-control" th:field="*{tel}" />
+							<input type="text" class="form-control" th:field="*{tel}" value="080-4690-3068" />
 							<p th:if="${#fields.hasErrors('tel')}" class="error-message" th:errors="*{tel}"></p>
 						</div>
 						<div class="mb-3">
 							<label class="form-label text-white" for="user_name">登録名</label>
-							<input type="text" class="form-control" th:field="*{name}" />
+							<input type="text" class="form-control" th:field="*{name}" value="ヒデ" />
 							<p th:if="${#fields.hasErrors('name')}" class="error-message" th:errors="*{name}"></p>
 						</div>
 						<div class="mb-3">
 							<label class="form-label text-white" for="user_age">年齢</label>
-							<input type="text" class="form-control" th:field="*{age}" />
+							<input type="text" class="form-control" th:field="*{age}" value="30" />
 							<p th:if="${#fields.hasErrors('age')}" class="error-message" th:errors="*{age}"></p>
 						</div>
 						<div class="mb-3">
 							<label class="form-label text-white" for="user_age">生年月日(西暦)</label>
-							<input type="text" class="form-control" th:field="*{birthDate}" />
+							<input type="text" class="form-control" th:field="*{birthDate}" value="19940111" />
 							<p th:if="${#fields.hasErrors('birthDate')}" class="error-message" th:errors="*{birthDate}"></p>
 						</div>
 						<div class="row">
 							<div class="col">
-								<label class="form-label text-white" for="user_mainArea">活動拠点</label>
+								<label class="form-label text-white" >活動拠点</label>
 							</div>
 							<div class="col">
 								<label class="form-label text-white" for="prefecture">都道府県</label>
-								<input type="text" class="form-control" id="prefecture" th:field="*{prefecture}" />
+								<input type="text" class="form-control" id="prefecture" th:field="*{prefecture}" 
+								value="福岡県" />
 							</div>
 							<div class="col">
-								<label class="form-label text-white" for="user_erea">市・区</label>
-								<input type="text" class="form-control" id="user_erea" th:field="*{erea}" />
+								<label class="form-label text-white" for="user_city">市・区</label>
+								<input type="text" class="form-control" id="user_city" th:field="*{city}" value="福岡市" />
 							</div>
 						</div>
 
 						<div class="mb-3">
 							<label class="form-label text-white" for="user_experience">学生時代の野球経験</label>
-							<input type="text" class="form-control" th:field="*{experience}" />
+							<input type="text" class="form-control" th:field="*{experience}" value="中学"/>
 							<p th:if="${#fields.hasErrors('experience')}" class="error-message" th:errors="*{experience}"></p>	
 						</div>
 						
 						<div class="mb-3">
 							<label class="form-label text-white" for="user_position">ポジション</label>
-							<input type="text" class="form-control" th:field="*{position}" />
+							<input type="text" class="form-control" th:field="*{position}" value="内野(ショート以外なら可),外野"/>
 							<p th:if="${#fields.hasErrors('name')}" class="error-message" th:errors="*{position}"></p>	
 						</div>
 						
 						<div class="row">
 							<div class="col">
-								<label class="form-label text-white" for="user_throwing-and-batting">投打</label>
+								<label class="form-label text-white" >投打</label>
 							</div>
 							<div class="col">
-								<label class="form-label text-white" for="user_throw">投</label>
-								<input type="text" class="form-control" id="user_throw" th:field="*{throwingAndBatting}" />
+								<label class="form-label text-white" for="user_throwing">投</label>
+								<input type="text" class="form-control" id="user_throwing" th:field="*{throwing}"value="右" />
 							</div>
 							<div class="col">
-								<label class="form-label text-white" for="user_bat">打</label>
-								<input type="text" class="form-control" id="user_bat" th:field="*{throwingAndBatting}" />
+								<label class="form-label text-white" for="user_batting">打</label>
+								<input type="text" class="form-control" id="user_batting" th:field="*{batting}" value="左"/>
 							</div>
 							<div class="mb-3">
 								<label class="form-label text-white" for="user_introduction">自己PR</label>
-								<input type="text" class="form-control" th:field="*{introduction}" />
+								<input type="text" class="form-control" th:field="*{introduction}" 
+								value="よろしくお願いします。"/>
 							</div>
 						</div>
 						

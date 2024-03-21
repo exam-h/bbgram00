@@ -20,30 +20,36 @@ public class UserForm {
 	@Size(max = 25)
 	private String age;
 	
+	
+	
 	@NotEmpty
 	@Size(max = 25)
 	private String prefecture;
 	
 	@NotEmpty
 	@Size(max = 25)
-	private String erea;
+	private String city;
 	
 	@NotEmpty
 	@Size(max = 50)
 	private String experience;
 	
+	
 	@NotEmpty
 	@Size(max = 25)
-	private String throwingAndBatting;
+	private String throwing;
+	
+	@NotEmpty
+	@Size(max = 25)
+	private String batting;
 	
 	@NotEmpty
 	@Size(max = 50)
 	private String position;
 	
-	
 	@NotEmpty
 	@Email
-	private String email;
+	private String username;
 
 	@NotEmpty
 	@Size(max = 20)
