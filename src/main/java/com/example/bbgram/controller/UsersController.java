@@ -36,20 +36,20 @@ public class UsersController {
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
 	public String create(@Validated @ModelAttribute("form") UserForm form, BindingResult result, Model model,
 			RedirectAttributes redirAttrs) {
-		String name = form.getName();
 		String username = form.getUsername();
 		String password = form.getPassword();
 		String passwordConfirmation = form.getPasswordConfirmation();
-		String prefecture = form.getPrefecture();
+		String tel = form.getTel();
+		String name = form.getName();
 		String age = form.getAge();
+		String birthDate = form.getBirthDate();
+		String prefecture = form.getPrefecture();
 		String city = form.getCity();
 		String experience = form.getExperience();
+		String position = form.getPosition();
 		String throwing = form.getThrowing();  
 		String batting = form.getBatting();
-		String position = form.getPosition();
-		String tel = form.getTel();
 		String introduction = form.getIntroduction();
-		String  birthDate = form.getBirthDate();
 
 		if (repository.findByUsername(username) != null) {
 			FieldError fieldError = new FieldError(result.getObjectName(), "email", "その E メールはすでに使用されています。");
@@ -63,11 +63,12 @@ public class UsersController {
 			return "users/new";
 		}
 
-		User entity = new User(username, name, passwordEncoder.encode(password), Authority.ROLE_USER, prefecture,
-				city, experience, throwing, batting, position, tel, introduction, birthDate,age);
+		User entity = new User(username, passwordEncoder.encode(password), Authority.ROLE_USER, 
+			tel, name,  age, birthDate, prefecture, city, experience, position, throwing, batting, introduction);
 		repository.saveAndFlush(entity);
 
 		return "redirect:/mypage";
 	}
+	
 }
 

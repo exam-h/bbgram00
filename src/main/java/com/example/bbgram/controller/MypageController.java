@@ -73,6 +73,7 @@ public class MypageController {
 			//list.add(form);
 		//}
 		model.addAttribute("form", form);
+		model.addAttribute("user", user);
 
 		return "mypage/index";
 	}

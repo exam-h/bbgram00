@@ -8,23 +8,23 @@ DROP TABLE IF EXISTS users_teams CASCADE;
 
 CREATE TABLE IF NOT EXISTS users (
   user_id SERIAL NOT NULL,
+  username VARCHAR(30) NOT NULL,
+  password VARCHAR(255) NOT NULL,
   authority VARCHAR(10) NOT NULL,
+  tel VARCHAR(15) NOT NULL,
   name VARCHAR(10) NOT NULL,
-  age INT NOT NULL,
+  age VARCHAR(2) NOT NULL,
   birth_date DATE NOT NULL,
   prefecture VARCHAR(5) NOT NULL,
   city VARCHAR(10) NOT NULL,
-  username VARCHAR(30) NOT NULL,
-  password VARCHAR(255) NOT NULL,
-  picture VARCHAR(100) ,
-  position VARCHAR(30) NOT NULL,
   experience VARCHAR(10) NOT NULL,
+  position VARCHAR(30) NOT NULL,
   throwing VARCHAR(3) NOT NULL,
   batting VARCHAR(3) NOT NULL,
   introduction VARCHAR(1000) NOT NULL,
-  tel VARCHAR(15) NOT NULL,
   created_at TIMESTAMP NOT NULL,
   updated_at TIMESTAMP NOT NULL,
+  path VARCHAR(100) ,  
   PRIMARY KEY (user_id)
 );
 

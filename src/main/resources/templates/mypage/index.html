@@ -31,13 +31,17 @@
 						</div>
 					</div>	
 					<div class="col-md-4">
-						<h1>個人データ(/users/newより参照)</h1>
-						<p class="border">登録名 </p>
-						<p class="border-top">年齢</p>
-						<p class="border-bottom">学生時代の野球経験</p>
-						<p class="border-right">ポジション</p>
-						<p class="border-left">投打</p>
-					</div>
+						<h1>個人データ</h1>
+						<p class="border">登録名: <span th:text="${user.name}" /> </p>
+						<p class="border">年齢: <span th:text="${user.age}" /></p>
+						<p class="border">活動拠点: <span th:text="${user.prefecture}" />
+						<span th:text="${user.city}" /></p>
+						<p class="border">学生時代の野球経験: <span th:text="${user.experience}" /></p>
+						<p class="border">ポジション: <span th:text="${user.position}" /></p>
+						<p class="border">投打: <span th:text="${user.throwing}" />投
+						<span th:text="${user.batting}" />打 </p>
+						<p class="border">コメント: <span th:text="${user.introduction}" /></p>
+					</div> 
 					<div class="col-md-4">
 						<h1>所属チーム</h1>
 						<p class="border">/teampage/editより参照</p>

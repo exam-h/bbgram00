@@ -34,54 +34,67 @@ public class User extends AbstractEntity implements UserDetails, UserInf {
 		super();
 	}
 
-	public User(String email, String name, String password, Authority authority,String age,  
-				String prefecture, String city, String experience,  
-				String throwing, String batting, String position, String tel, String introduction, String birthDate ){
+	public User(String email,  String password, Authority authority, String tel, String name,
+				String age,  String birthDate,String prefecture, String city, String experience,  
+				String position, String throwing, String batting, String introduction){
+		
 		this.username = email;
-		this.name = name;
 		this.password = password;
 		this.authority = authority;
+		this.tel = tel;
+		this.name = name;
 		this.age = age;
+		this.birthDate = birthDate;
 		this.prefecture = prefecture;
 		this.city = city;
 		this.experience = experience;
+		this.position = position;
 		this.throwing = throwing;
 		this.batting = batting;
-		this.position = position;
-		this.tel = tel;
 		this.introduction = introduction;
-		this.birthDate = birthDate;
+		
 	}
 
 	@Id
 	@SequenceGenerator(name = "users_id_seq")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long userId;
-
+	
 	@Column(nullable = false, unique = true)
 	private String username;
 
 	@Column(nullable = false)
-	private String name;
-
-	@Column(nullable = false)
 	private String password;
+
 
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private Authority authority;
 	
+
+	@Column(nullable = false)
+	private String tel;
+	
+	@Column(nullable = false)
+	private String name;
+	
 	@Column(nullable = false)
 	private String age;
 	
+	@Column(nullable = false)
+	private String birthDate;
+
 	@Column(nullable = false)
 	private String prefecture;
 	
 	@Column(nullable = false)
 	private String city;
-	
+		
 	@Column(nullable = false)
 	private String experience;
+	@Column(nullable = false)
+	
+	private String position;
 	
 	@Column(nullable = false)
 	private String throwing;
@@ -90,17 +103,8 @@ public class User extends AbstractEntity implements UserDetails, UserInf {
 	private String batting;
 	
 	@Column(nullable = false)
-	private String position;
-	
-	@Column(nullable = false)
-	private String birthDate;
-	
-	@Column(nullable = false)
-	private String tel;
-	
-	@Column(nullable = false)
 	private String introduction;
-
+	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		List<GrantedAuthority> authorities = new ArrayList<>();

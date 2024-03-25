@@ -11,41 +11,6 @@ import lombok.Data;
 @Data
 @PasswordEquals
 public class UserForm {
-
-	@NotEmpty
-	@Size(max = 100)
-	private String name;
-
-	@NotEmpty
-	@Size(max = 25)
-	private String age;
-	
-	
-	
-	@NotEmpty
-	@Size(max = 25)
-	private String prefecture;
-	
-	@NotEmpty
-	@Size(max = 25)
-	private String city;
-	
-	@NotEmpty
-	@Size(max = 50)
-	private String experience;
-	
-	
-	@NotEmpty
-	@Size(max = 25)
-	private String throwing;
-	
-	@NotEmpty
-	@Size(max = 25)
-	private String batting;
-	
-	@NotEmpty
-	@Size(max = 50)
-	private String position;
 	
 	@NotEmpty
 	@Email
@@ -59,16 +24,51 @@ public class UserForm {
 	@Size(max = 20)
 	private String passwordConfirmation;
 	
+
+	@NotEmpty
+	@Size(max = 20)
+	private String tel;
+	
+
+	@NotEmpty
+	@Size(max = 100)
+	private String name;
+
+	@NotEmpty
+	@Size(max = 65)
+	private String age;
+	
 	@NotEmpty
 	@Size(max = 20)
 	private String birthDate;
 	
 	@NotEmpty
-	@Size(max = 20)
-	private String tel;
+	@Size(max = 25)
+	private String prefecture;
 	
+	@NotEmpty
+	@Size(max = 25)
+	private String city;
+	
+	@NotEmpty
+	@Size(max = 50)
+	private String experience;
+	
+
+	@NotEmpty
+	@Size(max = 50)
+	private String position;
+	
+	@NotEmpty
+	@Size(max = 25)
+	private String throwing;
+	
+	@NotEmpty
+	@Size(max = 25)
+	private String batting;
+		
 	@NotEmpty
 	@Size(max = 20)
 	private String introduction;
-
+	
 }
