@@ -78,6 +78,7 @@ public class TeampageController {
 		teamform.setCity(team.getCity());
 		teamform.setExperience(team.getExperience());
 		teamform.setFormation(team.getFormation());
+		teamform.setFrequency(team.getFrequency());
 		teamform.setActivityDays(team.getActivityDays());	
 		teamform.setMatchDays(team.getMatchDays());
 		teamform.setTeamIntroduction(team.getTeamIntroduction());

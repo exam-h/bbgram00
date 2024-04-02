@@ -24,26 +24,27 @@
 												
 <!--<img src="/images/icons/pp.png" th:src="@{/images/icons/pp.png}">-->
 								<a class="form-label text-black" "teampage-btn-perssonal">
-									<a class="btn w-100 btn-outline-black" th:href="@{/teampage/{teamId}/pic(teamId=${team.TeamId})}">画像設定</a>
+									<a class="btn w-100 btn-outline-black text-white" th:href="@{/teampage/{teamId}/pic(teamId=${team.TeamId})}">画像設定</a>
 								</a>
 							<!--<input type="submit" value="登録" class="btn w-100 btn-outline-light" />
 							<href="/mypage/pic">-->
 						</div>
 					</div>	
-					<div class="col-md-6">
+					<div class="col-md-4">
 						<h1>チームデータ</h1>
-						<p class="border">チーム名: <span th:text="${team.name}" /> </p>
-						<p class="border">チーム名称: <span th:text="${team.read}" /></p>
-						<p class="border">活動拠点: <span th:text="${team.prefecture}" />
+						<p class="border text-white">チーム名: <span th:text="${team.name}" /> </p>
+						<p class="border text-white">チーム名称: <span th:text="${team.read}" /></p>
+						<p class="border text-white">活動拠点: <span th:text="${team.prefecture}" />
 						<span th:text="${team.city}" /></p>
+						<p class="border text-white">結成時期: <span th:text="${team.formation}" /></p>
+						<p class="border text-white">メンバーの野球経験: <span th:text="${team.experience}" /></p>
 					</div> 
-					<div>
-						<p class="border">結成時期: <span th:text="${team.formation}" /></p>
-						<p class="border">メンバーの野球経験: <span th:text="${team.experience}" /></p>
-						<p class="border">活動頻度: <span th:text="${team.frequency}" /></p>
-						<p class="border">活動曜日: <span th:text="${team.activityDays}" /></p>
-						<p class="border">年間試合日数: <span th:text="${team.matchDays}" /></p>
-						<p class="border">コメント: <span th:text="${team.teamIntroduction}" /></p>
+					<div class="col-md-4">
+						<h1>     </h1>
+						<p class="border text-white">活動頻度: <span th:text="${team.frequency}" /></p>
+						<p class="border text-white">活動曜日: <span th:text="${team.activityDays}" /></p>
+						<p class="border text-white">年間試合日数: <span th:text="${team.matchDays}" /></p>
+						<p class="border text-white">コメント: <span th:text="${team.teamIntroduction}" /></p>
 					</div> 
 				</div>
 			</div>
