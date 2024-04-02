@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+
+	<head>
+		<title>bbgram</title>
+	</head>
+
+	<body>
+		<div class="teams-new-wrapper" layout:fragment="contents">
+			<div class="container">
+				<!--<div class="row p-form-top d-none d-lg-block d-xl-block d-xxl-block"></div>-->
+				<div class="row">
+					<div class="col-md-4">
+						<div class="teampage-profile">
+							<th:block th:if="${form == null}">
+								<img src="/images/icons/pp.png" th:src="@{/images/icons/team.png}">
+							</th:block>
+							<th:block th:unless="${form == null}">
+								<img src="" th:if="${@environment.getProperty('image.local')}" th:src="${form.imageData}"
+								 class="icon" />
+							</th:block>
+												
+<!--<img src="/images/icons/pp.png" th:src="@{/images/icons/pp.png}">-->
+								<a class="form-label text-black" "teampage-btn-perssonal">
+									<a class="btn w-100 btn-outline-black" th:href="@{/teampage/{teamId}/pic(teamId=${team.TeamId})}">画像設定</a>
+								</a>
+							<!--<input type="submit" value="登録" class="btn w-100 btn-outline-light" />
+							<href="/mypage/pic">-->
+						</div>
+					</div>	
+					<div class="col-md-6">
+						<h1>チームデータ</h1>
+						<p class="border">チーム名: <span th:text="${team.name}" /> </p>
+						<p class="border">チーム名称: <span th:text="${team.read}" /></p>
+						<p class="border">活動拠点: <span th:text="${team.prefecture}" />
+						<span th:text="${team.city}" /></p>
+					</div> 
+					<div>
+						<p class="border">結成時期: <span th:text="${team.formation}" /></p>
+						<p class="border">メンバーの野球経験: <span th:text="${team.experience}" /></p>
+						<p class="border">活動頻度: <span th:text="${team.frequency}" /></p>
+						<p class="border">活動曜日: <span th:text="${team.activityDays}" /></p>
+						<p class="border">年間試合日数: <span th:text="${team.matchDays}" /></p>
+						<p class="border">コメント: <span th:text="${team.teamIntroduction}" /></p>
+					</div> 
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

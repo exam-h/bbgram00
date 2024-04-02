@@ -78,6 +78,13 @@ nav.navbar img {
 .users-new-wrapper main {
   padding-top: 80px; }
 
+.teams-new-wrapper {
+  width: 100vw;
+  height: 100vh; }
+
+.teams-new-wrapper main {
+  padding-top: 80px; }
+
 .topics-new-wrapper,
 .comments-new-wrapper {
   padding-top: 80px; }

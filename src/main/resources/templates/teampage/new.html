@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+
+<head>
+	<title>Bbgram</title>
+</head>
+
+<body>
+	<div class="teams-new-wrapper" layout:fragment="contents">
+		<div class="container">
+			<div class="row p-form-top d-none d-lg-block d-xl-block d-xxl-block"></div>
+			<div class="row">
+				<main class="col-md-4 mx-auto">
+					<h1 class="text-center text-white">Sign in</h1>
+					<form method="post" th:action="@{/teampage/create}" th:object="${teamform}">
+						
+						<div class="mb-3">
+							<label class="form-label text-white" for="team_name">チーム名</label>
+							<input type="text" class="form-control" name="name" value="RED STAR" />
+						</div>
+						<div class="mb-3">
+							<label class="form-label text-white" for="team_read">チーム名称</label>
+							<input type="text" class="form-control" name="read" value="レッドスター" />
+						</div>
+						
+						<div class="row">
+							<div class="col">
+								<label class="form-label text-white" >活動拠点</label>
+							</div>
+							<div class="col">
+								<label class="form-label text-white" for="team_prefecture">都道府県</label>
+								<input type="text" class="form-control" id="prefecture" name="prefecture" 
+								value="福岡県" />
+							</div>
+							<div class="col">
+								<label class="form-label text-white" for="team_city">市・区</label>
+								<input type="text" class="form-control" id="user_city" name="city" value="福岡市" />
+							</div>
+						</div>
+						
+						<div class="mb-3">
+							<label class="form-label text-white" for="team_experience">メンバーの野球経験</label>
+							<input type="text" class="form-control" name="experience" value="高校5人 中学7人 未経験3人"/>
+						</div>
+						
+						
+						<div class="mb-3">
+							<label class="form-label text-white" for="team_formation">チーム結成時期(西暦)　例:2012年01月</label>
+							<input type="text" class="form-control" name="formation" value="2012年01月" />
+							
+						</div>
+						
+						<div class="mb-3">
+							<label class="form-label text-white" for="team_frequency">活動頻度　例:1カ月2回</label>
+							<input type="text" class="form-control" name="frequency" value="1カ月2～3回"/>	
+						</div>
+						<div class="mb-3">
+							<label class="form-label text-white" for="team_activityDays">活動曜日　例:火曜日、水曜日</label>
+							<input type="text" class="form-control" name="activityDays" value="土曜日"/>	
+						</div>
+						
+						<div class="mb-3">
+							<label class="form-label text-white" for="team_matchDays">年間試合日数　例:1年に10試合</label>
+							<input type="text" class="form-control" name="matchDays" value="1年に13試合(リーグ戦のみ)"/>	
+						</div>
+						
+							<div class="mb-3">
+								<label class="form-label text-white" for="team_teamIntroduction">コメント</label>
+								<input type="text" class="form-control" name="teamIntroduction" 
+								value="こんにちは　REDSTARの代表者です。福岡市内中心に活動しております。市外のチーム
+								からの試合を募集しております。"/>
+							</div>
+						</div>
+						
+						<input type="submit" value="登録" class="btn w-100 btn-outline-light" />
+					</form>
+				</main>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

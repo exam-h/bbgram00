@@ -95,6 +95,16 @@ nav.navbar img {
 	padding-top: 80px;
 }
 
+.teams-new-wrapper {
+	width: 100vw;
+	height: 100vh;
+	
+}
+
+.teams-new-wrapper main {
+	padding-top: 80px;
+}
+
 .topics-new-wrapper,
 .comments-new-wrapper {
 	padding-top: 80px;
@@ -110,7 +120,7 @@ nav.navbar img {
 	background-color: #fafafa;
 	min-height: calc(100vh - 180px);
 	overflow: hidden;
-}
+	}
 
 .topics-index-wrapper main {
 	width: 100vw;

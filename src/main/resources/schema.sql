@@ -29,20 +29,20 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 CREATE TABLE IF NOT EXISTS teams (
-  id SERIAL NOT NULL,
+  team_id SERIAL NOT NULL,
   name VARCHAR(15) NOT NULL,
   read VARCHAR(15) NOT NULL,
   prefecture VARCHAR(5) NOT NULL,
-  erea VARCHAR(10) NOT NULL,
+  city VARCHAR(10) NOT NULL,
   exeperience VARCHAR(10) NOT NULL,
+  formation VARCHAR(12) NOT NULL,
   frequency VARCHAR(10) NOT NULL,
   activity_days VARCHAR(10) NOT NULL,
   match_days VARCHAR(10) NOT NULL,
   team_introduction VARCHAR(1000) NOT NULL,
-  formation DATE NOT NULL,
   created_at TIMESTAMP NOT NULL,
   updated_at TIMESTAMP NOT NULL, 
-  PRIMARY KEY (id)
+  PRIMARY KEY (team_id)
 );
 
 CREATE TABLE IF NOT EXISTS memberboads (
