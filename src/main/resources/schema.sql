@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS teams CASCADE;
-DROP TABLE IF EXISTS memberboads CASCADE;
 DROP TABLE IF EXISTS matchboards CASCADE;
+DROP TABLE IF EXISTS plusmember CASCADE;
 DROP TABLE IF EXISTS memberforms CASCADE;
 DROP TABLE IF EXISTS matchforms CASCADE;
 DROP TABLE IF EXISTS users_teams CASCADE;
@@ -45,7 +45,23 @@ CREATE TABLE IF NOT EXISTS teams (
   PRIMARY KEY (team_id)
 );
 
-CREATE TABLE IF NOT EXISTS memberboads (
+CREATE TABLE IF NOT EXISTS matchboads (
+  id SERIAL NOT NULL,
+  dateandtime VARCHAR(30) NOT NULL,
+  title VARCHAR(30) NOT NULL,
+  prefecture VARCHAR(5) NOT NULL,
+  ground VARCHAR(30) NOT NULL,
+  referee VARCHAR(3) NOT NULL,
+  cost VARCHAR(30) NOT NULL,
+  helpmember VARCHAR(10) NOT NULL, 
+  comments VARCHAR(50) NOT NULL, 
+  apply_end VARCHAR(10) NOT NULL, 
+  created_at TIMESTAMP NOT NULL,
+  updated_at TIMESTAMP NOT NULL, 
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS plusmember (
   id SERIAL NOT NULL,
   title VARCHAR(30) NOT NULL,
   apply int NOT NULL,
@@ -59,36 +75,3 @@ CREATE TABLE IF NOT EXISTS memberboads (
   updated_at TIMESTAMP NOT NULL, 
   PRIMARY KEY (id)
 );
-  
-CREATE TABLE IF NOT EXISTS matchboads (
-  id SERIAL NOT NULL,
-  dateandtime VARCHAR(20) NOT NULL,
-  title VARCHAR(30) NOT NULL,
-  ground VARCHAR(30) NOT NULL,
-  referee VARCHAR(3) NOT NULL,
-  cost int NOT NULL,
-  helpmember VARCHAR(10) NOT NULL, 
-  comment VARCHAR(1000) NOT NULL, 
-  apply_end VARCHAR(10) NOT NULL, 
-  created_at TIMESTAMP NOT NULL,
-  updated_at TIMESTAMP NOT NULL, 
-  PRIMARY KEY (id)
-);
-  
-CREATE TABLE IF NOT EXISTS memberforms (
-  id SERIAL NOT NULL,
-  messsage VARCHAR(1000) NOT NULL, 
-  created_at TIMESTAMP NOT NULL,
-  updated_at TIMESTAMP NOT NULL, 
-  PRIMARY KEY (id)
-);
-
-CREATE TABLE IF NOT EXISTS matchforms (
-  id SERIAL NOT NULL,
-  messsage VARCHAR(1000) NOT NULL, 
-  created_at TIMESTAMP NOT NULL,
-  updated_at TIMESTAMP NOT NULL, 
-  PRIMARY KEY (id)
-);
-
-

@@ -45,6 +45,8 @@
 						<p class="border text-white">活動曜日: <span th:text="${team.activityDays}" /></p>
 						<p class="border text-white">年間試合日数: <span th:text="${team.matchDays}" /></p>
 						<p class="border text-white">コメント: <span th:text="${team.teamIntroduction}" /></p>
+						<a class="form-label text-black" "teampage-btn-perssonal">
+							<a class="btn w-100 btn-outline-light" th:href="@{/matchboard/new}">試合相手を募集する</a>
 					</div> 
 				</div>
 			</div>

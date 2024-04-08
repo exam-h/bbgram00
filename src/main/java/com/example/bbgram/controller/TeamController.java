@@ -46,25 +46,3 @@ public class TeamController {
 	
 }
 	
-//	@RequestMapping(value = "/teampage/edit", method = RequestMethod.POST)
-//	public String create(@Validated @ModelAttribute("form") TeamForm form, BindingResult result, Model model,
-//			RedirectAttributes redirAttrs) {
-//		
-//		String.name = form.getName();
-//		String.read = form.getRead();
-//		String.prefecture = form.getPrefecture();
-//		String.city = form.getCity();
-//		String.exeperience = form.getExeperience();
-//		String,formation = form.getFormation();
-//		String.frequency = form.getFrequency();
-//		String.activityDays = form.getActivityDays();
-//		String.matchDays = form.getMatchDays;
-//		String.teamIntroduction = form.getTeamIntroduction;
-//
-//
-//		Team entity = new Team(name, read,prefecture, city, exeperience, formation, frequency, activityDays, matchDays, teamIntroduction);
-//		 
-//
-//		return "redirect:/mypage";
-//	}
-//}

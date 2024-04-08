@@ -1,0 +1,63 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+
+<head>
+	<title>Bbgram</title>
+</head>
+
+<body>
+	<div class="mb-new-wrapper" layout:fragment="contents">
+		<div class="container-fluid">
+			<div class="row p-form-top d-none d-lg-block d-xl-block d-xxl-block"></div>
+			<div class="row">
+				<main class="col-md-4 mx-auto">
+					<h1 class="text-center text-white">募集する</h1>
+					<form method="post" th:action="@{/matchboard/new}" th:object="${form}">
+
+						<div class="mb-3">
+							<label class="form-label text-white" for="mb_dateandtime">試合日時</label>
+							<input type="text" class="form-control" name="dateandtime" value="2024年4月6日13:00～17:00" />
+						</div>
+
+						<div class="mb-3">
+							<label class="form-label text-white" for="mb_prefecture">エリア</label>
+							<input type="text" class="form-control" id="prefecture" name="prefecture" value="福岡県" />
+						</div>
+						<div class="mb-3">
+							<label class="form-label text-white" for="mb_title">タイトル</label>
+							<input type="text" class="form-control" name="title" value="試合相手募集" />
+						</div>
+
+						<div class="mb-3">
+							<label class="form-label text-white" for="mb_referee">メンバーの野球経験　手配済or未手配</label>
+							<input type="text" class="form-control" name="referee" value="手配済" />
+						</div>
+
+
+						<div class="mb-3">
+							<label class="form-label text-white" for="mb_cost">費用</label>
+							<input type="text" class="form-control" name="cost" value="3000円" />
+
+						</div>
+
+						<div class="mb-3">
+							<label class="form-label text-white" for="mb_helpmember">助っ人 〇人</label>
+							<input type="text" class="form-control" name="helpmember" value="2人" />
+						</div>
+
+						<div class="mb-3">
+							<label class="form-label text-white" for="mb_comments">コメント</label>
+							<input type="text" class="form-control" name="comments" value="こんにちは　REDSTARの代表者です。
+							4月6日13:00又は15:00から試合相手を募集しております。よろしければメッセージよろしくお願いします。" />
+						</div>
+					</div>
+				<input type="submit" value="募集する" class="btn w-100 btn-outline-light" />
+				<input type="submit" value="募集終了" class="btn w-100 btn-outline-red" />
+			</form>
+			</main>
+		</div>
+	</div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+
+<head>
+	<title>bbgram</title>
+</head>
+
+<body>
+	<div class="mb-index-wrapper" layout:fragment="contents">
+		<div class="container-fluid">
+			<div class="row justify-content-center">
+					<div class="col-3">
+						<a class="btn w-100 btn-outline-light" href="/matchboard/new">新規募集する</a>
+					</div>
+				
+<!--			<div class="panel panel-default">-->
+<!--				<div class="panel-heading text-center">対戦チーム募集検索</div>-->
+<!--				<div class="panel-body">-->
+<!--					<form class="offer_team_opponent_search" id="offer_team_opponent_search"-->
+<!--						action="/search/opponent_teams" accept-charset="UTF-8" method="get">-->
+<!--						<div class="form-group">-->
+<!--							<label for="ground" class="col-form-label textLong">グラウンド<br>有り／なし</label>-->
+<!--							<div class="searchSelect row">-->
+<!--								<select class="form-control" id="ground_select" name="q">-->
+<!--									<option value="">選択してください</option>-->
+<!--									<option value="true">有り</option>-->
+<!--									<option value="false">無し</option>-->
+<!--								</select>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--						<div class="form-group">-->
+<!--							<label class="form-label text-white" for="prefecture">エリア(都道府県)</label>-->
+<!--							<input type="text" class="form-control" id="prefecture"-->
+<!--								th:field="*{matchboards.prefecture}" />-->
+<!--						</div>-->
+<!--						<div class="form-group">-->
+<!--							<label class="form-label text-white" for="dateandtime">>試合年月日</label>-->
+<!--							<input type="text" class="form-control" id="dateandtime"-->
+<!--								th:field="*{matchboards.dateandtime}" />-->
+<!--						</div>	-->
+<!--						<div class="btnContainer">-->
+<!--							<button name="button" type="submit" class="btn btn-primary btn-block">検索する</button>-->
+<!--						</div>-->
+<!--						<div class="btnContainer">-->
+<!--							<button name="button" type="submit" class="btn btn-primary btn-block">募集する</button>-->
+<!--						</div>-->
+			</div>
+		</div>
+	</div>		
+</body>
+
+</html>

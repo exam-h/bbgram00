@@ -16,9 +16,15 @@
 				<ul class="navbar-nav ms-auto">
 					<th:block sec:authorize="isAuthenticated()">
 						<li class="nav-item">
-							<img src="/images/icons/helpmember.png" th:src="@{/images/icons/pp2.png}">
+							<a class="nav-link" th:href="@{/mypage}">
+								<img src="/images/icons/pp2.png" th:src="@{/images/icons/pp2.png}">
+							</a>
+						</li>	
 						<li class="nav-item">
-							<img src="/images/icons/helpmember.png" th:src="@{/images/icons/team.png}">
+							<a class="nav-link" th:href="@{/teampage/{id}}">
+								<img src="/images/icons/team.png" th:src="@{/images/icons/team.png}">
+							</a>
+						</li>
 						<li class="nav-item">
 							<img src="/images/icons/helpmember.png" th:src="@{/images/icons/helpmember.png}">
 						</li>
@@ -26,7 +32,9 @@
 							<img src="/images/icons/member.png" th:src="@{/images/icons/member.png}">
 						</li>
 						<li class="nav-item">
-							<img src="/images/icons/exhibision.png" th:src="@{/images/icons/exhibision.png}">
+							<a class="nav-link" th:href="@{/matchboard}">
+								<img src="/images/icons/exhibision.png" th:src="@{/images/icons/exhibision.png}">
+							</a>
 						</li>
 						<li class="nav-item">
 							<a th:href="@{/logout}" class="nav-link convert" data-method="post"

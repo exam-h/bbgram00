@@ -208,3 +208,23 @@ nav.navbar img {
 .comments-new-wrapper {
 	padding-top: 80px;
 }
+.mb-new-wrapper{
+	width: 100vw;
+	margin-top: 50px;	
+	background-image: url("/images/pic-2.jpg");
+	background-position: center center;
+	background-repeat: repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #464646;
+}
+
+
+.mb-new-wrapper main {
+	padding-top: 80px;
+}
+
+.mb-new-wrapper,
+.comments-new-wrapper {
+	padding-top: 80px;
+}
