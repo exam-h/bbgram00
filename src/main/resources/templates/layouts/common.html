@@ -16,12 +16,12 @@
 				<ul class="navbar-nav ms-auto">
 					<th:block sec:authorize="isAuthenticated()">
 						<li class="nav-item">
-							<a class="nav-link" th:href="@{/mypage}">
+							<a  th:href="@{/mypage}" class="nav-link">
 								<img src="/images/icons/pp2.png" th:src="@{/images/icons/pp2.png}">
 							</a>
 						</li>	
 						<li class="nav-item">
-							<a class="nav-link" th:href="@{/teampage/{id}}">
+							<a  th:href="@{/teampage/{id}}" class="nav-link">
 								<img src="/images/icons/team.png" th:src="@{/images/icons/team.png}">
 							</a>
 						</li>

@@ -13,15 +13,15 @@ import lombok.Data;
 @Entity
 @Table(name = "Matchboads")
 @Data
-public class Me extends AbstractEntity {
+public class Mb extends AbstractEntity {
 	private static final long serialVersionUID = 1L;
 
-	public Me() {
+	public Mb() {
 		super();
 	}
 
-	public Me(String dateandtime, String prefecture, String ground, String title, String referee, 
-			String cost, String helpmember, String comments, String apply_end) {
+	public Mb(String dateandtime, String prefecture, String ground, String title, String referee, 
+			String cost, String helpmember, String comments) {
 		this.dateandtime = dateandtime;
 		this.prefecture = prefecture;
 		this.ground = ground;
@@ -30,7 +30,6 @@ public class Me extends AbstractEntity {
 		this.cost = cost;
 		this.helpmember = helpmember;
 		this.comments = comments;
-		this.apply_end = apply_end;
 	}
 
 	@Id
@@ -40,9 +39,6 @@ public class Me extends AbstractEntity {
 
 	@Column(nullable = false)
 	private String dateandtime;
-	
-	@Column(nullable = false)
-	private String read;
 
 	@Column(nullable = false)
 	private String prefecture;
@@ -65,6 +61,4 @@ public class Me extends AbstractEntity {
 	@Column(nullable = false)
 	private String comments;
 
-	@Column(nullable = false)
-	private String apply_end;
 }

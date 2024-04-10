@@ -6,47 +6,33 @@
 </head>
 
 <body>
-	<div class="mb-index-wrapper" layout:fragment="contents">
+	<div class="mb-new-wrapper" layout:fragment="contents">
 		<div class="container-fluid">
 			<div class="row justify-content-center">
-					<div class="col-3">
-						<a class="btn w-100 btn-outline-light" href="/matchboard/new">新規募集する</a>
+				<div class="col-3">
+					<a class="btn w-100 btn-outline-light" th:href="@{/matchboard/new}">新規募集する</a>
+				</div>
+
+				<div class="panel panel-black">
+					<div class="panel-heading">
+						<h2 class="panel-title text-white">対戦相手募集一覧</h2>
 					</div>
-				
-<!--			<div class="panel panel-default">-->
-<!--				<div class="panel-heading text-center">対戦チーム募集検索</div>-->
-<!--				<div class="panel-body">-->
-<!--					<form class="offer_team_opponent_search" id="offer_team_opponent_search"-->
-<!--						action="/search/opponent_teams" accept-charset="UTF-8" method="get">-->
-<!--						<div class="form-group">-->
-<!--							<label for="ground" class="col-form-label textLong">グラウンド<br>有り／なし</label>-->
-<!--							<div class="searchSelect row">-->
-<!--								<select class="form-control" id="ground_select" name="q">-->
-<!--									<option value="">選択してください</option>-->
-<!--									<option value="true">有り</option>-->
-<!--									<option value="false">無し</option>-->
-<!--								</select>-->
-<!--							</div>-->
-<!--						</div>-->
-<!--						<div class="form-group">-->
-<!--							<label class="form-label text-white" for="prefecture">エリア(都道府県)</label>-->
-<!--							<input type="text" class="form-control" id="prefecture"-->
-<!--								th:field="*{matchboards.prefecture}" />-->
-<!--						</div>-->
-<!--						<div class="form-group">-->
-<!--							<label class="form-label text-white" for="dateandtime">>試合年月日</label>-->
-<!--							<input type="text" class="form-control" id="dateandtime"-->
-<!--								th:field="*{matchboards.dateandtime}" />-->
-<!--						</div>	-->
-<!--						<div class="btnContainer">-->
-<!--							<button name="button" type="submit" class="btn btn-primary btn-block">検索する</button>-->
-<!--						</div>-->
-<!--						<div class="btnContainer">-->
-<!--							<button name="button" type="submit" class="btn btn-primary btn-block">募集する</button>-->
-<!--						</div>-->
+				</div>
+				<ul class="list-group">
+					<th:block th:each="game : ${matchboards}">
+						<li class="list-group-item end">
+							<a th:href="@{matchboard/{Id}(Id =${game.id})}"><span th:text="${game.title}" /></a>
+						</li>
+						<div class="dateInfo">
+							<p class="border text-white">試合日時;<span th:text="${game.dateandtime}" /></p>
+							<p class="border text-white">エリア;<span th:text="${game.prefecture}" /></p>
+							<p class="border text-white">グラウンド:<span th:text="${game.ground}" /></p>
+						</div>
+					</th:block>
+				</ul>
 			</div>
 		</div>
-	</div>		
+	</div>				
 </body>
 
 </html>

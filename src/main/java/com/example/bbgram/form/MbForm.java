@@ -43,8 +43,5 @@ public class MbForm {
 	@Size(max = 1000)
 	private String comments;
 
-	@NotEmpty
-	@Size(max = 10)
-	private String apply_end;
 
 }
