@@ -82,7 +82,7 @@ public class TeampageController {
 		teamform.setActivityDays(team.getActivityDays());	
 		teamform.setMatchDays(team.getMatchDays());
 		teamform.setTeamIntroduction(team.getTeamIntroduction());
-		model.addAttribute("team", teamform);
+		model.addAttribute("teamform", teamform);
 		model.addAttribute("form", form);
 
 		return "teampage/index";

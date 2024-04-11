@@ -22,25 +22,25 @@
 								 class="icon" />
 							</th:block>
 								<a class="form-label text-black" "teampage-btn-perssonal">
-									<a class="btn w-100 btn-outline-black text-white" th:href="@{/teampage/{teamId}/pic(teamId=${team.TeamId})}">画像設定</a>
+									<a class="btn w-100 btn-outline-black text-white" th:href="@{/teampage/{teamId}/pic(teamId=${teamform.TeamId})}">画像設定</a>
 								</a>
 						</div>
 					</div>	
 					<div class="col-md-4">
-						<h1class="text-center text-white">チームデータ</h1>
-						<p class="border text-white">チーム名: <span th:text="${team.name}" /> </p>
-						<p class="border text-white">チーム名称: <span th:text="${team.read}" /></p>
-						<p class="border text-white">活動拠点: <span th:text="${team.prefecture}" />
-						<span th:text="${team.city}" /></p>
-						<p class="border text-white">結成時期: <span th:text="${team.formation}" /></p>
-						<p class="border text-white">メンバーの野球経験: <span th:text="${team.experience}" /></p>
+						<h1　class="text-center text-white">チームデータ</h1>
+						<p class="border text-white">チーム名: <span th:text="${teamform.name}" /> </p>
+						<p class="border text-white">チーム名称: <span th:text="${teamform.read}" /></p>
+						<p class="border text-white">活動拠点: <span th:text="${teamform.prefecture}" />
+						<span th:text="${teamform.city}" /></p>
+						<p class="border text-white">結成時期: <span th:text="${teamform.formation}" /></p>
+						<p class="border text-white">メンバーの野球経験: <span th:text="${teamform.experience}" /></p>
 					</div> 
 					<div class="col-md-4">
 						<h1></h1>
-						<p class="border text-white">活動頻度: <span th:text="${team.frequency}" /></p>
-						<p class="border text-white">活動曜日: <span th:text="${team.activityDays}" /></p>
-						<p class="border text-white">年間試合日数: <span th:text="${team.matchDays}" /></p>
-						<p class="border text-white">コメント: <span th:text="${team.teamIntroduction}" /></p>
+						<p class="border text-white">活動頻度: <span th:text="${teamform.frequency}" /></p>
+						<p class="border text-white">活動曜日: <span th:text="${teamform.activityDays}" /></p>
+						<p class="border text-white">年間試合日数: <span th:text="${teamform.matchDays}" /></p>
+						<p class="border text-white">コメント: <span th:text="${teamform.teamIntroduction}" /></p>
 						<a class="form-label text-black" "teampage-btn-perssonal">
 							<a class="btn w-100 btn-outline-light" th:href="@{/matchboard/new}">試合相手を募集する</a>
 					</div> 

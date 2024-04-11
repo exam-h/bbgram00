@@ -1,0 +1,47 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+
+<head>
+	<title>bbgram</title>
+</head>
+
+<body>
+	<div class="mb-new-wrapper" layout:fragment="contents">
+		<div class="container-fluid">
+			<div class="row justify-content-center">
+				<div class="col-3">
+					<h1 class="text-center text-white">対戦相手募集</h1>
+				</div>
+
+				<div class="panel panel-black">
+					<div class="panel-heading">
+						<h1 class="text-center panel-title text-white"></h1>
+					</div>
+				</div>
+				<ul class="list-group">
+					<th:block th:each="game : ${matchboards}">
+						<li class="list-group-item end">
+							<p><span th:text="${game.dateandtime}" /></p>
+							<p><span th:text="${game.title}" /></p>
+							<p><span th:text="${game.prefecture}" /></p>
+						</li>
+						<div class="dateInfo">
+							<h1 class="text-center text-white">募集詳細</h1>
+							<p class="border text-white"><span th:text="${game.title}" /></p>
+							<p class="border text-white">試合日時;<span th:text="${game.dateandtime}" /></p>
+							<p class="border text-white">エリア;<span th:text="${game.prefecture}" /></p>
+							<p class="border text-white">グラウンド:<span th:text="${game.ground}" /></p>
+							<p class="border text-white">審判:<span th:text="${game.referee}" /></p>
+							<p class="border text-white">費用(審判代やグラウンド代);<span th:text="${game.cost}" /></p>
+							<p class="border text-white">助っ人;<span th:text="${game.helpmember}" /></p>
+							<p class="border text-white">コメント:<span th:text="${game.comments}" /></p>
+							<input type="submit" value="応募する又はメールする" class="btn w-100 btn-outline-light" />
+						</div>
+					</th:block>
+				</ul>
+			</div>
+		</div>
+	</div>				
+</body>
+
+</html>

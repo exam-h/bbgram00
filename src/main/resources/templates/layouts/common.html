@@ -19,12 +19,14 @@
 							<a  th:href="@{/mypage}" class="nav-link">
 								<img src="/images/icons/pp2.png" th:src="@{/images/icons/pp2.png}">
 							</a>
-						</li>	
+						</li>
+						<th:block th:if="${teamform != null}">	
 						<li class="nav-item">
-							<a  th:href="@{/teampage/{id}}" class="nav-link">
+							<a th:href="@{/teampage/{id}(id=${teamform.TeamId})}" class="nav-link">
 								<img src="/images/icons/team.png" th:src="@{/images/icons/team.png}">
 							</a>
 						</li>
+						</th:block>
 						<li class="nav-item">
 							<img src="/images/icons/helpmember.png" th:src="@{/images/icons/helpmember.png}">
 						</li>

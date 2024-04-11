@@ -32,10 +32,13 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.bbgram.entity.Mypage;
+import com.example.bbgram.entity.Team;
 import com.example.bbgram.entity.UserInf;
 import com.example.bbgram.form.MypageForm;
+import com.example.bbgram.form.TeamForm;
 import com.example.bbgram.form.UserForm;
 import com.example.bbgram.repository.MypageRepository;
+import com.example.bbgram.repository.TeamRepository;
 
 @Controller
 public class MypageController {
@@ -49,6 +52,9 @@ public class MypageController {
 	private MypageRepository repository;
 
 	@Autowired
+	private TeamRepository teamrepository;
+	
+	@Autowired
 	private HttpServletRequest request;
 
 	@Value("${image.local:false}")
@@ -59,6 +65,7 @@ public class MypageController {
 		Authentication authentication = (Authentication) principal;
 		UserInf user = (UserInf) authentication.getPrincipal();
 
+		Long userId = user.getUserId();
 		List<Mypage> mypage = (List<Mypage>)repository.findAllByOrderByUpdatedAtDesc();
 		MypageForm form = null;
 		//if(mypage!=null ){
@@ -66,7 +73,26 @@ public class MypageController {
 			Mypage image = mypage.get(0);
 			form = getMypage(user, image);
 		}
-		
+		//自分が作成したチームを取得
+		 List<Team> myteams = teamrepository.findByUserId(userId);
+		 TeamForm teamform = null;
+		 if(myteams.size() !=0) {
+			 Team myteam = myteams.get(0);
+			 //teamをteamformに詰め替える
+			 teamform = new TeamForm();
+			 teamform.setTeamId(myteam.getTeamId()+"");
+			 teamform.setName(myteam.getName());
+			 teamform.setRead(myteam.getRead());
+			 teamform.setPrefecture(myteam.getPrefecture());
+			 teamform.setCity(myteam.getCity());
+			 teamform.setExperience(myteam.getExperience());
+			 teamform.setFormation(myteam.getFormation());
+			 teamform.setFrequency(myteam.getFrequency());
+			 teamform.setActivityDays(myteam.getActivityDays());
+			 teamform.setMatchDays(myteam.getMatchDays());
+			 teamform.setTeamIntroduction(myteam.getTeamIntroduction());
+		 }
+		 
 		//List<MypageForm> list = new ArrayList<>();
 		//for (Mypage entity : mypage) {
 			
@@ -74,6 +100,7 @@ public class MypageController {
 		//}
 		model.addAttribute("form", form);
 		model.addAttribute("user", user);
+		model.addAttribute("teamform", teamform);
 
 		return "mypage/index";
 	}

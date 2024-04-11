@@ -12,12 +12,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.bbgram.entity.Mb;
 import com.example.bbgram.form.MbForm;
 import com.example.bbgram.repository.MbRepository;
+
 
 @Controller
 public class MbController {
@@ -87,28 +89,33 @@ public class MbController {
 		return "matchboard/index";
 	}
 	
-//	@GetMapping(path = "/matchboard/{Id}")
-//	public String show(Principal principal,@PathVariable("Id") Long Id, Model model) throws IOException {
-//		Authentication authentication = (Authentication) principal;
-//		//↓
-//		List<Mb> mbs = (List<Mb>) mbrepository.findAllByOrderByUpdatedAtDesc();
-//		//List<Mb> mbs = (List<Mb>) mbrepository.findByDeletedFalseOrderByUpdatedAtDesc();
-//		List<MbForm> forms = new ArrayList<>();
-//		
-//		for(Mb mb:mbs) {
-//			MbForm mbform = new MbForm();
-//			mbform.setId(mb.getId());
-//			mbform.setDateandtime(mb.getDateandtime());
-//			mbform.setPrefecture(mb.getPrefecture());
-//			mbform.setGround(mb.getGround());
-//			mbform.setTitle(mb.getTitle());
-//			forms.add(mbform);
-//		}
-//		
-//		
-//		model.addAttribute("matchboards", forms); //model.addAttributeでmatchboards→forbsで呼び出す
-//
-//		return "matchboard/index";
-//
-//	}
+	@GetMapping(path = "/matchboard/{Id}")
+	public String show(Principal principal,@PathVariable("Id") Long Id, Model model) throws IOException {
+		Authentication authentication = (Authentication) principal;
+		//↓
+		List<Mb> mbs = (List<Mb>) mbrepository.findAllByOrderByUpdatedAtDesc();
+		List<MbForm> forms = new ArrayList<>();
+		
+		for(Mb mb:mbs) {
+			MbForm mbform = new MbForm();
+			mbform.setTitle(mb.getTitle());
+			mbform.setId(mb.getId());
+			mbform.setDateandtime(mb.getDateandtime());
+			mbform.setPrefecture(mb.getPrefecture());
+			mbform.setGround(mb.getGround());
+			mbform.setReferee(mb.getReferee());
+			mbform.setCost(mb.getCost());
+			mbform.setHelpmember(mb.getHelpmember());
+			mbform.setComments(mb.getComments());		
+			forms.add(mbform);
+		}
+		model.addAttribute("matchboards", forms); //model.addAttributeでmatchboards→forbsで呼び出す
+
+		return "matchboard/show";
+
+	}
+	public String newShow(Model model) {
+		model.addAttribute("form", new MbForm());
+		return "matchboard/show";
+	}
 }

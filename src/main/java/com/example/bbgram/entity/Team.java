@@ -26,7 +26,7 @@ public class Team extends AbstractEntity {
 
     public Team(String name, String read, String prefecture, String city,
     			String experience, String formation, String frequency,
-    			String activityDays, String matchDays, String teamIntroduction) {
+    			String activityDays, String matchDays, String teamIntroduction, Long userId) {
         this.name = name;
         this.read = read;
         this.prefecture = prefecture;
@@ -37,6 +37,7 @@ public class Team extends AbstractEntity {
         this.activityDays = activityDays;
         this.matchDays = matchDays;
         this.teamIntroduction = teamIntroduction;
+        this.userId = userId;
     }
 
     @Id
@@ -73,5 +74,8 @@ public class Team extends AbstractEntity {
     
     @Column(nullable = false)
     private String teamIntroduction;
+    
+    @Column(nullable = false)
+    private Long userId;
     
 }
