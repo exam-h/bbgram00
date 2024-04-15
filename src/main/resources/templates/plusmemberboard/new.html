@@ -1,0 +1,88 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+
+<head>
+	<title>Bbgram</title>
+</head>
+
+<body>
+	<div class="pm-new-wrapper" layout:fragment="contents">
+		<div class="container-fluid">
+			<div class="row p-form-top d-none d-lg-block d-xl-block d-xxl-block"></div>
+			<div class="row">
+				<main class="col-md-4 mx-auto">
+					<h1 class="text-center text-white">募集する</h1>
+					<form method="post" th:action="@{/plusmemberboard/new}" th:object="${form}">
+
+						<div class="mb-3">							
+							<label class="form-label text-white" for="pm_title">タイトル</label>
+							<input type="text" class="form-control" name="title" value="新メンバー募集" />
+						</div>
+						<div class="mb-3">
+							<label class="form-label text-white" for="pm_newbieposition">募集ポジション</label>
+							<input type="text" class="form-control" name="newbieposition" value="投手" />
+						</div>
+						
+						<div class="row">
+							<div class="col">
+								<label class="form-label text-white" >活動拠点</label>
+							</div>
+							<div class="col">
+								<label class="form-label text-white" for="pm_prefecture">都道府県</label>
+								<input type="text" class="form-control" id="pm_prefecture" name="prefecture" 
+								value="福岡県" />
+							</div>
+							<div class="col">
+								<label class="form-label text-white" for="pm_city">市・区</label>
+								<input type="text" class="form-control" id="pm_city" name="city" value="福岡市" />
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col">
+								<label class="form-label text-white">募集年齢</label>
+							</div>
+							<div class="col">
+								<label class="form-label text-white" for="pm_age_min" >年齢(低)</label>
+								<input type="text" class="form-control" name="age_min" value="19" />
+							</div>
+							<div class="col">
+								<label class="form-label text-white" for="pm_age_max">年齢(高)</label>
+								<input type="text" class="form-control" name="age_max" value="29" />
+							</div>
+						</div>
+						
+						<div class="mb-3">
+							<label class="form-label text-white" for="pm_frequency">活動頻度　例:1カ月2回</label>
+							<input type="text" class="form-control" name="frequency" value="1カ月2～3回"/>	
+						</div>
+						<div class="mb-3">
+							<label class="form-label text-white" for="pm_activityDays">活動曜日　例:火曜日、水曜日</label>
+							<input type="text" class="form-control" name="activityDays" value="土曜日"/>	
+						</div>
+						
+						<div class="mb-3">
+							<label class="form-label text-white" for="pm_matchDays">年間試合日数　例:1年に10試合</label>
+							<input type="text" class="form-control" name="matchDays" value="1年に15試合前後"/>	
+						</div>
+						
+
+						<div class="mb-3">
+							<label class="form-label text-white" for="pm_newplayer">募集人数</label>
+							<input type="text" class="form-control" name="newplayer" value="2人" />
+						</div>
+						<div class="mb-3">
+							<label class="form-label text-white" for="pm_team_pr">自己PR</label>
+							<input type="text" class="form-control" name="team_pr" value="REDSTARの代表者です。万年投手不足で年に3勝できるかできないかのチーム状況です。こんなチームでよろしければRedStar.gmail.comにメッセージよろしくお願いします。" />
+						</div>
+						
+
+						<input type="submit" value="登録" class="btn w-100 btn-outline-light" />
+					</form>
+				</main>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

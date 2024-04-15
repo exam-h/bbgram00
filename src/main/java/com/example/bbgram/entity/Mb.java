@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "Matchboads")
+@Table(name = "matchboads")
 @Data
 public class Mb extends AbstractEntity {
 	private static final long serialVersionUID = 1L;

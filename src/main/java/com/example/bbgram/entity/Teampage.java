@@ -12,13 +12,13 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "teampage")
+@Table(name = "teampages")
 @Data
 public class Teampage extends AbstractEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name = "teampage_id_seq")
+	@SequenceGenerator(name = "teampages_id_seq")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 

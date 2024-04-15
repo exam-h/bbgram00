@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+
+<head>
+	<title>bbgram</title>
+</head>
+
+<body>
+	<div class="mb-new-wrapper" layout:fragment="contents">
+		<div class="container-fluid">
+			<div class="row justify-content-center">
+				<div class="col-3">
+					<a class="btn w-100 btn-outline-light" th:href="@{/plusmemberboard/new}">新規募集する</a>
+				</div>
+
+				<div class="panel panel-black">
+					<div class="panel-heading">
+						<h2 class="panel-title text-white">メンバー募集一覧</h2>
+					</div>
+				</div>
+				<ul class="list-group">
+					<th:block th:each="member : ${plusmemberboards}">
+						<li class="list-group-item end">
+							<a th:href="@{plusmemberboard/{Id}(Id =${member.id})}"><span th:text="${member.title}" /></a>
+						</li>
+						<div class="dateInfo">
+							<p class="border text-white">活動拠点: <span th:text="${member.prefecture}" />
+						<span th:text="${member.city}" /></p>
+							<p class="border text-white">活動頻度:<span th:text="${member.frequency}" /></p>
+							<p class="border text-white">募集ポジション;<span th:text="${member.newbieposition}" /></p>
+						</div>
+					</th:block>
+				</ul>
+			</div>
+		</div>
+	</div>				
+</body>
+
+</html>

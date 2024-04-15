@@ -1,7 +1,9 @@
 DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS mypage CASCADE;
 DROP TABLE IF EXISTS teams CASCADE;
+DROP TABLE IF EXISTS teampages CASCADE;
 DROP TABLE IF EXISTS matchboards CASCADE;
-DROP TABLE IF EXISTS plusmember CASCADE;
+DROP TABLE IF EXISTS memberboards CASCADE;
 DROP TABLE IF EXISTS memberforms CASCADE;
 DROP TABLE IF EXISTS matchforms CASCADE;
 DROP TABLE IF EXISTS users_teams CASCADE;
@@ -24,9 +26,17 @@ CREATE TABLE IF NOT EXISTS users (
   introduction VARCHAR(1000) NOT NULL,
   created_at TIMESTAMP NOT NULL,
   updated_at TIMESTAMP NOT NULL,
-  path VARCHAR(100) ,  
   PRIMARY KEY (user_id)
 );
+
+CREATE TABLE IF NOT EXISTS mypages (
+  id SERIAL NOT NULL,
+  user_id INT NOT NULL,
+  path VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP NOT NULL,
+  updated_at TIMESTAMP NOT NULL,
+  PRIMARY KEY (id)
+ );
 
 CREATE TABLE IF NOT EXISTS teams (
   team_id SERIAL NOT NULL,
@@ -45,7 +55,14 @@ CREATE TABLE IF NOT EXISTS teams (
   PRIMARY KEY (team_id)
 );
 
-CREATE TABLE IF NOT EXISTS matchboads (
+CREATE TABLE IF NOT EXISTS teampages (
+  id SERIAL NOT NULL,
+  user_id INT NOT NULL,
+  path VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS matchboards (
   id SERIAL NOT NULL,
   dateandtime VARCHAR(30) NOT NULL,
   title VARCHAR(30) NOT NULL,
@@ -55,22 +72,24 @@ CREATE TABLE IF NOT EXISTS matchboads (
   cost VARCHAR(30) NOT NULL,
   helpmember VARCHAR(10) NOT NULL, 
   comments VARCHAR(50) NOT NULL, 
-  apply_end VARCHAR(10) NOT NULL, 
   created_at TIMESTAMP NOT NULL,
   updated_at TIMESTAMP NOT NULL, 
   PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS plusmember (
+CREATE TABLE IF NOT EXISTS memberboards (
   id SERIAL NOT NULL,
   title VARCHAR(30) NOT NULL,
-  apply int NOT NULL,
   newbieposition VARCHAR(20) NOT NULL,
-  age_min int NOT NULL,
-  age_max int NOT NULL,
+  prefecture VARCHAR(5) NOT NULL,
+  city VARCHAR(10) NOT NULL,
+  age_min VARCHAR(3) NOT NULL,
+  age_max VARCHAR(3) NOT NULL,
+  frequency VARCHAR(10) NOT NULL,
+  activity_days VARCHAR(10) NOT NULL,
+  match_days VARCHAR(10) NOT NULL,
   newplayer VARCHAR(10) NOT NULL, 
   team_pr VARCHAR(1000) NOT NULL, 
-  apply_end VARCHAR(10) NOT NULL, 
   created_at TIMESTAMP NOT NULL,
   updated_at TIMESTAMP NOT NULL, 
   PRIMARY KEY (id)

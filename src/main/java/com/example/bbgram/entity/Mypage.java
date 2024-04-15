@@ -15,13 +15,13 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "mypage")
+@Table(name = "mypages")
 @Data
 public class Mypage extends AbstractEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name = "mypage_id_seq")
+	@SequenceGenerator(name = "mypages_id_seq")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 

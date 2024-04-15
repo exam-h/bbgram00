@@ -96,7 +96,6 @@ nav.navbar img {
   background-image: url("/images/pic-3.jpg");
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-size: cover;
   background-color: #464646; }
 
@@ -161,7 +160,6 @@ nav.navbar img {
   background-image: url("/images/pic-3.jpg");
   background-position: center center;
   background-repeat: repeat;
-  background-attachment: fixed;
   background-size: cover;
   background-color: #464646; }
 
@@ -207,5 +205,40 @@ nav.navbar img {
 .mb-index-wrapper,
 .comments-new-wrapper {
   padding-top: 80px; }
+
+.pm-new-wrapper {
+  width: 100vw;
+  margin-top: 50px;
+  background-image: url("/images/pic-1.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646; }
+
+.pm-new-wrapper main {
+  padding-top: 80px; }
+
+.pm-new-wrapper,
+.comments-new-wrapper {
+  padding-top: 80px; }
+  .pm-new-wrapper .pm-index-wrapper,
+  .comments-new-wrapper .pm-index-wrapper {
+    width: 100vw;
+    margin-top: 50px;
+    background-image: url("images/pic-3.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646; }
+  .pm-new-wrapper .pm-index-wrapper main,
+  .comments-new-wrapper .pm-index-wrapper main {
+    padding-top: 80px; }
+  .pm-new-wrapper .pm-index-wrapper,
+  .pm-new-wrapper .comments-new-wrapper,
+  .comments-new-wrapper .pm-index-wrapper,
+  .comments-new-wrapper .comments-new-wrapper {
+    padding-top: 80px; }
 
 /*# sourceMappingURL=style.css.map */

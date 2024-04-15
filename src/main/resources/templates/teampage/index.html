@@ -27,7 +27,7 @@
 						</div>
 					</div>	
 					<div class="col-md-4">
-						<h1　class="text-center text-white">チームデータ</h1>
+						<h1 class="text-center text-white">チームデータ</h1>
 						<p class="border text-white">チーム名: <span th:text="${teamform.name}" /> </p>
 						<p class="border text-white">チーム名称: <span th:text="${teamform.read}" /></p>
 						<p class="border text-white">活動拠点: <span th:text="${teamform.prefecture}" />
@@ -41,8 +41,8 @@
 						<p class="border text-white">活動曜日: <span th:text="${teamform.activityDays}" /></p>
 						<p class="border text-white">年間試合日数: <span th:text="${teamform.matchDays}" /></p>
 						<p class="border text-white">コメント: <span th:text="${teamform.teamIntroduction}" /></p>
-						<a class="form-label text-black" "teampage-btn-perssonal">
-							<a class="btn w-100 btn-outline-light" th:href="@{/matchboard/new}">試合相手を募集する</a>
+						<a class="btn w-100 btn-outline-light" th:href="@{/plusmemberboard/new}">メンバーを募集する</a>
+						<a class="btn w-100 btn-outline-light" th:href="@{/matchboard/new}">試合相手を募集する</a>
 					</div> 
 				</div>
 			</div>
