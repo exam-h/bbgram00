@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -82,5 +83,35 @@ public class PmController {
 	public String newPm(Model model) {
 		model.addAttribute("form", new PmForm());
 		return "plusmemberboard/index";
+	}
+	
+	@GetMapping(path = "/plusmemberboard/{Id}")
+	public String show(Principal principal, @PathVariable("Id") Long Id,Model model) throws IOException {
+		Authentication authentication = (Authentication) principal;
+		List<Pm> pms = (List<Pm>) pmrepository.findAllByOrderByUpdatedAtDesc();
+		List<PmForm> forms = new ArrayList<>();
+		for(Pm pm:pms) {
+		PmForm pmform = new PmForm();
+		pmform.setTitle(pm.getTitle());
+		pmform.setNewbieposition(pm.getNewbieposition());
+		pmform.setPrefecture(pm.getPrefecture());
+		pmform.setCity(pm.getCity());
+		pmform.setAge_min(pm.getAge_min());
+		pmform.setAge_max(pm.getAge_max());
+		pmform.setFrequency(pm.getFrequency());
+		pmform.setActivityDays(pm.getActivityDays());
+		pmform.setMatchDays(pm.getMatchDays());
+		pmform.setNewplayer(pm.getNewplayer());
+		pmform.setTeam_pr(pm.getTeam_pr());
+		forms.add(pmform);
+	}		
+		model.addAttribute("plusmemberboards", forms);
+		
+		return "plusmemberboard/show";
+	}
+	
+	public String newShow(Model model) {
+		model.addAttribute("form", new PmForm());
+		return "plusmemberboard/show";
 	}
 }

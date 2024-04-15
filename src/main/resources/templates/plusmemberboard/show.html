@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+
+<head>
+	<title>bbgram</title>
+</head>
+
+<body>
+	<body>
+	<div class="mb-new-wrapper" layout:fragment="contents">
+		<div class="container-fluid">
+			<div class="row justify-content-center">
+				<div class="col-3">
+					<h1 class="text-center text-white">メンバー募集</h1>
+				</div>
+				<div class="panel panel-black">
+					<div class="panel-heading">
+						<h1 class="text-center panel-title text-white"></h1>
+					</div>
+				</div>
+				<ul class="list-group">
+					<th:block th:each="member : ${plusmemberboards}">
+						<li class="list-group-item end">
+							<a th:href="@{plusmemberboard/{Id}(Id =${member.id})}"><span th:text="${member.title}" /></a>
+						</li>
+						<div class="dateInfo">
+							<p class="border text-white">活動拠点: <span th:text="${member.prefecture}" />
+						<span th:text="${member.city}" />
+							<p class="border text-white">募集ポジション;<span th:text="${member.newbieposition}" /></p>
+							<p class="border text-white">年齢: <span th:text="${member.age_min}" />～
+							<span th:text="${member.age_max}" /></p>
+							<p class="border text-white">活動頻度:<span th:text="${member.frequency}" /></p>
+							<p class="border text-white">活動曜日:<span th:text="${member.activityDays}" /></p>
+							<p class="border text-white">年間試合日数:<span th:text="${member.matchDays}" /></p>
+							<p class="border text-white">募集人数:<span th:text="${member.newplayer}" /></p>
+							<p class="border text-white">コメント:<span th:text="${member.team_pr}" /></p>
+						</div>
+					</th:block>
+				</ul>
+
+		</div>
+	</div>				
+</body>
+
+</html>
