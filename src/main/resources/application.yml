@@ -7,5 +7,15 @@ spring:
     multipart:
       max-file-size: 20MB
       max-request-size: 20MB
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/bbgram
+    username: postgres
+    password: postgres
+    
+    #url: jdbc:postgresql://localhost:5432/${portfolio.dbname}
+    #username: ${portfolio.user}
+    #password: ${portfolio.password} 
 image:
   local: true      
+  

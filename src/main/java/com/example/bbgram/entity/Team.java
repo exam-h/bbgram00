@@ -2,9 +2,12 @@ package com.example.bbgram.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -26,7 +29,7 @@ public class Team extends AbstractEntity {
 
     public Team(String name, String read, String prefecture, String city,
     			String experience, String formation, String frequency,
-    			String activityDays, String matchDays, String teamIntroduction, Long userId) {
+    			String activityDays, String matchDays, String teamIntroduction, User user) {
         this.name = name;
         this.read = read;
         this.prefecture = prefecture;
@@ -37,14 +40,14 @@ public class Team extends AbstractEntity {
         this.activityDays = activityDays;
         this.matchDays = matchDays;
         this.teamIntroduction = teamIntroduction;
-        this.userId = userId;
+        this.user = user;
     }
 
     @Id
     @SequenceGenerator(name = "teams_id_seq")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long teamId;
-
+    
     @Column(nullable = false)
     private String name;
     
@@ -75,7 +78,8 @@ public class Team extends AbstractEntity {
     @Column(nullable = false)
     private String teamIntroduction;
     
-    @Column(nullable = false)
-    private Long userId;
-    
+ // TeamとUserの双方向の関係
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "userId", nullable = false)
+    private User user; //水色のuseは好きな表記も可
 }

@@ -1,5 +1,5 @@
 DROP TABLE IF EXISTS users CASCADE;
-DROP TABLE IF EXISTS mypage CASCADE;
+DROP TABLE IF EXISTS mypages CASCADE;
 DROP TABLE IF EXISTS teams CASCADE;
 DROP TABLE IF EXISTS teampages CASCADE;
 DROP TABLE IF EXISTS matchboards CASCADE;
@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS users (
   tel VARCHAR(15) NOT NULL,
   name VARCHAR(10) NOT NULL,
   age VARCHAR(2) NOT NULL,
-  birth_date DATE NOT NULL,
+  birth_date VARCHAR(15) NOT NULL,
   prefecture VARCHAR(5) NOT NULL,
   city VARCHAR(10) NOT NULL,
   experience VARCHAR(10) NOT NULL,
@@ -40,15 +40,16 @@ CREATE TABLE IF NOT EXISTS mypages (
 
 CREATE TABLE IF NOT EXISTS teams (
   team_id SERIAL NOT NULL,
+  user_id INT NOT NULL,
   name VARCHAR(15) NOT NULL,
   read VARCHAR(15) NOT NULL,
   prefecture VARCHAR(5) NOT NULL,
   city VARCHAR(10) NOT NULL,
-  exeperience VARCHAR(10) NOT NULL,
+  experience VARCHAR(50) NOT NULL,
   formation VARCHAR(12) NOT NULL,
-  frequency VARCHAR(10) NOT NULL,
-  activity_days VARCHAR(10) NOT NULL,
-  match_days VARCHAR(10) NOT NULL,
+  frequency VARCHAR(30) NOT NULL,
+  activity_days VARCHAR(30) NOT NULL,
+  match_days VARCHAR(30) NOT NULL,
   team_introduction VARCHAR(1000) NOT NULL,
   created_at TIMESTAMP NOT NULL,
   updated_at TIMESTAMP NOT NULL, 
@@ -57,8 +58,10 @@ CREATE TABLE IF NOT EXISTS teams (
 
 CREATE TABLE IF NOT EXISTS teampages (
   id SERIAL NOT NULL,
-  user_id INT NOT NULL,
+  team_Id INT NOT NULL,
   path VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP NOT NULL,
+  updated_at TIMESTAMP NOT NULL,
   PRIMARY KEY (id)
 );
 
@@ -92,5 +95,15 @@ CREATE TABLE IF NOT EXISTS memberboards (
   team_pr VARCHAR(1000) NOT NULL, 
   created_at TIMESTAMP NOT NULL,
   updated_at TIMESTAMP NOT NULL, 
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS matchforms(
+  id SERIAL NOT NULL,
+  user_id INT NOT NULL,
+  team_id INT NOT NULL,
+  message VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP NOT NULL,
+  updated_at TIMESTAMP NOT NULL,
   PRIMARY KEY (id)
 );

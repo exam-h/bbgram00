@@ -75,4 +75,7 @@ public class Pm extends AbstractEntity {
 	@Column(nullable = false)
 	private String team_pr;
 
+//	@OneToMany
+//	@JoinColumn(name = "id", insertable = false, updatable = false)
+//	private List<memberboards> ;
 }

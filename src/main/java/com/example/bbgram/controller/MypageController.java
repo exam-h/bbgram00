@@ -33,12 +33,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.bbgram.entity.Mypage;
 import com.example.bbgram.entity.Team;
+import com.example.bbgram.entity.User;
 import com.example.bbgram.entity.UserInf;
 import com.example.bbgram.form.MypageForm;
 import com.example.bbgram.form.TeamForm;
 import com.example.bbgram.form.UserForm;
 import com.example.bbgram.repository.MypageRepository;
 import com.example.bbgram.repository.TeamRepository;
+import com.example.bbgram.repository.UserRepository;
 
 @Controller
 public class MypageController {
@@ -53,6 +55,9 @@ public class MypageController {
 
 	@Autowired
 	private TeamRepository teamrepository;
+
+	@Autowired
+	private UserRepository userrepository;
 	
 	@Autowired
 	private HttpServletRequest request;
@@ -66,6 +71,7 @@ public class MypageController {
 		UserInf user = (UserInf) authentication.getPrincipal();
 
 		Long userId = user.getUserId();
+		User myuser  = userrepository.findByUserId(userId);
 		List<Mypage> mypage = (List<Mypage>)repository.findAllByOrderByUpdatedAtDesc();
 		MypageForm form = null;
 		//if(mypage!=null ){
@@ -74,7 +80,7 @@ public class MypageController {
 			form = getMypage(user, image);
 		}
 		//自分が作成したチームを取得
-		 List<Team> myteams = teamrepository.findByUserId(userId);
+		 List<Team> myteams = teamrepository.findByUser(myuser);
 		 TeamForm teamform = null;
 		 if(myteams.size() !=0) {
 			 Team myteam = myteams.get(0);

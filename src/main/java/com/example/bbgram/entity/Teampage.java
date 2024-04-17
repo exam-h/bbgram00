@@ -27,12 +27,6 @@ public class Teampage extends AbstractEntity implements Serializable {
 
 	@Column(nullable = false)
 	private String path;
-	
 
-	@Column
-	private Double latitude;
-
-	@Column
-	private Double longitude;
 
 }

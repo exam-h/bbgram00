@@ -13,6 +13,11 @@ public class TeamForm {
 	
 	@NotEmpty
 	@Size(max = 20)
+	private Long userId;
+	
+	
+	@NotEmpty
+	@Size(max = 20)
 	private String name;
 
 	@NotEmpty

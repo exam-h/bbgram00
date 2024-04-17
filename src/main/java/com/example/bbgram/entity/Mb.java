@@ -60,5 +60,8 @@ public class Mb extends AbstractEntity {
 	
 	@Column(nullable = false)
 	private String comments;
-
+	
+//	@OneToMany
+//	@JoinColumn(name = "id", insertable = false, updatable = false)
+//	private List<matchboards> ;
 }

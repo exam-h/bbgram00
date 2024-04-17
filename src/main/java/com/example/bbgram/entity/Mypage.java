@@ -32,12 +32,6 @@ public class Mypage extends AbstractEntity implements Serializable {
 	private String path;
 	
 
-	@Column
-	private Double latitude;
-
-	@Column
-	private Double longitude;
-
 	@ManyToOne
 	@JoinColumn(name = "Id", insertable = false, updatable = false)
 	private User user;

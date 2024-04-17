@@ -11,15 +11,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.bbgram.entity.Team;
+import com.example.bbgram.entity.User;
 import com.example.bbgram.entity.UserInf;
 import com.example.bbgram.form.TeamForm;
 import com.example.bbgram.repository.TeamRepository;
+import com.example.bbgram.repository.UserRepository;
 
 @Controller
 public class TeamController {
 	
 	@Autowired
 	TeamRepository teamrepository;
+	
+	@Autowired
+	private UserRepository userrepository;
 	
 	@RequestMapping(value = "/teampage/new", method = RequestMethod.GET)
 	public String newTeam(Model model) {
@@ -33,6 +38,7 @@ public class TeamController {
 		Authentication authentication = (Authentication) principal;
 		UserInf user = (UserInf) authentication.getPrincipal();
 		Long userId = user.getUserId();
+		User myuser  = userrepository.findByUserId(userId);
 		String name = form.getName();
 		String read = form.getRead();
 		String prefecture = form.getPrefecture();
@@ -45,7 +51,7 @@ public class TeamController {
 		String teamIntroduction = form.getTeamIntroduction();
 		
 		Team entity = new Team(name, read,prefecture, city, experience, formation,
-				frequency, activityDays, matchDays, teamIntroduction, userId);
+				frequency, activityDays, matchDays, teamIntroduction, myuser);
 		
 		teamrepository.saveAndFlush(entity);
 		return "redirect:/teampage/" + entity.getTeamId();
