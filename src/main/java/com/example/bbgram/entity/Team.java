@@ -92,7 +92,7 @@ public class Team extends AbstractEntity {
     private List<Mb> mbs;
     
     //メンバー募集掲示板との関係
-//    @OneToMany
-//	@JoinColumn(name = "id", insertable = false, updatable = false)
-//	private Pm pm;
+    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Pm> pms;
+    
 }

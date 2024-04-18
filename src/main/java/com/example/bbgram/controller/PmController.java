@@ -18,13 +18,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.bbgram.entity.Pm;
+import com.example.bbgram.entity.Team;
+import com.example.bbgram.entity.User;
+import com.example.bbgram.entity.UserInf;
 import com.example.bbgram.form.PmForm;
 import com.example.bbgram.repository.PmRepository;
+import com.example.bbgram.repository.UserRepository;
 
 @Controller
 public class PmController {
 	@Autowired
 	private PmRepository pmrepository;
+	
+	@Autowired
+	private UserRepository userrepository;
 	
 	@Autowired
 	private ModelMapper modelMapper;
@@ -36,7 +43,12 @@ public class PmController {
 	}
 	
 	@RequestMapping(value = "/plusmemberboard/new", method = RequestMethod.POST)
-	public String createPm(@ModelAttribute("form") PmForm form, Model model) {
+	public String createPm(Principal principal,@ModelAttribute("form") PmForm form, Model model) {
+		Authentication authentication = (Authentication) principal;
+		UserInf user = (UserInf) authentication.getPrincipal();
+		Long userId = user.getUserId();
+		User myuser = userrepository.findByUserId(userId);
+		Team team = myuser.getTeam();
 		model.addAttribute("form", new PmForm());
 		String title = form.getTitle();
 		String newbieposition = form.getNewbieposition();
@@ -51,7 +63,7 @@ public class PmController {
 		String team_pr = form.getTeam_pr();
 				
 		Pm entity = new Pm(title, newbieposition, prefecture, city, age_min, age_max,
-				frequency, activityDays, matchDays, newplayer, team_pr);
+				frequency, activityDays, matchDays, newplayer, team_pr, team);
 		
 		pmrepository.saveAndFlush(entity);
 		return "redirect:/plusmemberboard";

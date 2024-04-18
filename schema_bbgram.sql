@@ -83,6 +83,7 @@ CREATE TABLE IF NOT EXISTS matchboards (
 
 CREATE TABLE IF NOT EXISTS memberboards (
   id SERIAL NOT NULL,
+  team_id INT NOT NULL,
   title VARCHAR(30) NOT NULL,
   newbieposition VARCHAR(20) NOT NULL,
   prefecture VARCHAR(5) NOT NULL,

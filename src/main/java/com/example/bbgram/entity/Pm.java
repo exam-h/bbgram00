@@ -2,9 +2,12 @@ package com.example.bbgram.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -22,7 +25,7 @@ public class Pm extends AbstractEntity {
 	
 	public Pm(String title, String newbieposition, String prefecture, String city,
 			String age_min, String age_max, String frequency, String activityDays, 
-			String matchDays, String newplayer,  String team_pr){
+			String matchDays, String newplayer,  String team_pr, Team team){
 
 		this.title = title;
 		this.newbieposition = newbieposition;
@@ -35,7 +38,8 @@ public class Pm extends AbstractEntity {
 		this.matchDays = matchDays;
 		this.newplayer = newplayer;
 		this.team_pr = team_pr;
-		}
+		this.team = team;
+	}
 	
 	@Id
 	@SequenceGenerator(name = "memberboards_id_seq")
@@ -75,7 +79,7 @@ public class Pm extends AbstractEntity {
 	@Column(nullable = false)
 	private String team_pr;
 
-//	@OneToMany
-//	@JoinColumn(name = "id", insertable = false, updatable = false)
-//	private List<memberboards> ;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "teamId", referencedColumnName = "teamId", nullable = false)
+    private Team team;
 }
