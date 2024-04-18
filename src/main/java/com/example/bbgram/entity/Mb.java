@@ -2,16 +2,19 @@ package com.example.bbgram.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import lombok.Data;
 
 @Entity
-@Table(name = "matchboads")
+@Table(name = "matchboards")
 @Data
 public class Mb extends AbstractEntity {
 	private static final long serialVersionUID = 1L;
@@ -21,7 +24,7 @@ public class Mb extends AbstractEntity {
 	}
 
 	public Mb(String dateandtime, String prefecture, String ground, String title, String referee, 
-			String cost, String helpmember, String comments) {
+			String cost, String helpmember, String comments, Team team) {
 		this.dateandtime = dateandtime;
 		this.prefecture = prefecture;
 		this.ground = ground;
@@ -30,6 +33,7 @@ public class Mb extends AbstractEntity {
 		this.cost = cost;
 		this.helpmember = helpmember;
 		this.comments = comments;
+		this.team = team;
 	}
 
 	@Id
@@ -63,5 +67,9 @@ public class Mb extends AbstractEntity {
 	
 //	@OneToMany
 //	@JoinColumn(name = "id", insertable = false, updatable = false)
-//	private List<matchboards> ;
+//	private Mb mbs;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "teamId", referencedColumnName = "teamId", nullable = false)
+    private Team team; //水色のuseは好きな表記も可
 }

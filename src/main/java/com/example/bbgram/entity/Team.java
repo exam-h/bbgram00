@@ -1,5 +1,8 @@
 package com.example.bbgram.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -82,4 +86,13 @@ public class Team extends AbstractEntity {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId", nullable = false)
     private User user; //水色のuseは好きな表記も可
+    
+    //試合相手募集掲示板との関係
+    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Mb> mbs;
+    
+    //メンバー募集掲示板との関係
+//    @OneToMany
+//	@JoinColumn(name = "id", insertable = false, updatable = false)
+//	private Pm pm;
 }

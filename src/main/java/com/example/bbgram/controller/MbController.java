@@ -17,8 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.bbgram.entity.Mb;
+import com.example.bbgram.entity.Team;
+import com.example.bbgram.entity.User;
+import com.example.bbgram.entity.UserInf;
 import com.example.bbgram.form.MbForm;
 import com.example.bbgram.repository.MbRepository;
+import com.example.bbgram.repository.UserRepository;
 
 
 @Controller
@@ -32,6 +36,8 @@ public class MbController {
 	@Autowired
 	private MbRepository mbrepository;
 	
+	@Autowired
+	private UserRepository userrepository;
 
 	@GetMapping(path = "/matchboard/new")
 	public String newMe(Model model) {
@@ -40,7 +46,12 @@ public class MbController {
 	}
 	
 	@RequestMapping(value = "/matchboard/new", method = RequestMethod.POST)
-	public String createMe(@ModelAttribute("form") MbForm form, Model model) {
+	public String createMe(Principal principal, @ModelAttribute("form") MbForm form, Model model) {
+		Authentication authentication = (Authentication) principal;
+		UserInf user = (UserInf) authentication.getPrincipal();
+		Long userId = user.getUserId();
+		User myuser = userrepository.findByUserId(userId);
+		Team team = myuser.getTeam();
 		model.addAttribute("form", new MbForm());
 		String dateandtime = form.getDateandtime();
 		String prefecture = form.getPrefecture();
@@ -51,7 +62,7 @@ public class MbController {
 		String helpmember = form.getHelpmember();
 		String comments = form.getComments();
 		
-		Mb entity = new Mb(dateandtime, prefecture, ground, title, referee, cost, helpmember, comments);
+		Mb entity = new Mb(dateandtime, prefecture, ground, title, referee, cost, helpmember, comments, team);
 		
 		mbrepository.saveAndFlush(entity);
 		return "redirect:/matchboard";

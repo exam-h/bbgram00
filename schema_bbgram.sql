@@ -67,14 +67,15 @@ CREATE TABLE IF NOT EXISTS teampages (
 
 CREATE TABLE IF NOT EXISTS matchboards (
   id SERIAL NOT NULL,
+  team_id INT NOT NULL,
   dateandtime VARCHAR(30) NOT NULL,
   title VARCHAR(30) NOT NULL,
-  prefecture VARCHAR(5) NOT NULL,
+  prefecture VARCHAR(20) NOT NULL,
   ground VARCHAR(30) NOT NULL,
-  referee VARCHAR(3) NOT NULL,
+  referee VARCHAR(10) NOT NULL,
   cost VARCHAR(30) NOT NULL,
   helpmember VARCHAR(10) NOT NULL, 
-  comments VARCHAR(50) NOT NULL, 
+  comments VARCHAR(1000) NOT NULL, 
   created_at TIMESTAMP NOT NULL,
   updated_at TIMESTAMP NOT NULL, 
   PRIMARY KEY (id)
