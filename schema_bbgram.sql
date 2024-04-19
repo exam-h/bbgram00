@@ -99,13 +99,3 @@ CREATE TABLE IF NOT EXISTS memberboards (
   updated_at TIMESTAMP NOT NULL, 
   PRIMARY KEY (id)
 );
-
-CREATE TABLE IF NOT EXISTS matchforms(
-  id SERIAL NOT NULL,
-  user_id INT NOT NULL,
-  team_id INT NOT NULL,
-  message VARCHAR(255) NOT NULL,
-  created_at TIMESTAMP NOT NULL,
-  updated_at TIMESTAMP NOT NULL,
-  PRIMARY KEY (id)
-);
