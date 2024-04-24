@@ -25,5 +25,6 @@ import com.example.bbgram.entity.Pm;
 		 */
 		List<Pm> findAllByOrderByUpdatedAtDesc();
 		
+		List<Pm> findByPrefecture(String prefecture);
 	
 }

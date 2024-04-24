@@ -99,24 +99,9 @@ public class MbController {
 		//MbRepositoryを使ってmatchboadsテーブルからprefectureがkeywordであるデータを取得する
 		//そのデータをmodelにセットする
 		//表示したいHTMLを呼び出す
-		//		Authentication authentication = (Authentication) principal;
-//
+
 		List<Mb> mbs = (List<Mb>) mbrepository.findByPrefecture(keyword);
 		
-		//		//List<Mb> mbs = (List<Mb>) mbrepository.findByDeletedFalseOrderByUpdatedAtDesc();
-//		List<MbForm> forms = new ArrayList<>();
-//		
-//		for(Mb mb:mbs) {
-//			MbForm mbform = new MbForm();
-//			mbform.setId(mb.getId());
-//			mbform.setDateandtime(mb.getDateandtime());
-//			mbform.setPrefecture(mb.getPrefecture());
-//			mbform.setGround(mb.getGround());
-//			mbform.setTitle(mb.getTitle());
-//			forms.add(mbform);
-//		}
-//		
-//		
 		model.addAttribute("matchboards", mbs); //model.addAttributeでmatchboards→forbsで呼び出す
 
 		return "matchboard/index";

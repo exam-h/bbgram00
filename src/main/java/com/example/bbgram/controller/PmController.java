@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.bbgram.entity.Pm;
 import com.example.bbgram.entity.Team;
@@ -88,6 +89,19 @@ public class PmController {
 		model.addAttribute("plusmemberboards", forms);
 		
 		return "plusmemberboard/index";
+	}
+	
+	@GetMapping(path = "/plusmemberboard/search")
+	public String search(@RequestParam("keyword") String keyword, Model model) throws IOException {
+		//MbRepositoryを使ってmatchboadsテーブルからprefectureがkeywordであるデータを取得する
+		//そのデータをmodelにセットする
+		//表示したいHTMLを呼び出す
+
+		List<Pm> pms = (List<Pm>) pmrepository.findByPrefecture(keyword);
+		
+		model.addAttribute("plusmemberboards", pms); 
+		return "plusmemberboard/index";
+		
 	}
 	
 	@RequestMapping(value = "/plusmemberboard/index", method = RequestMethod.GET)

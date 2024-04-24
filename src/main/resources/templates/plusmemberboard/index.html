@@ -10,9 +10,15 @@
 	<div class="mb-new-wrapper" layout:fragment="contents">
 		<div class="container-fluid">
 			<div class="row justify-content-center">
-<!--				<div class="col-3">-->
+				
+				<div class="col-3">
+					<form th:action="@{/plusmemberboard/search}">
+						<input type="search" name="keyword" placeholder="都道府県を入力してください。">
+						<input type="submit" value="検索">
+					</form>
+					<br>
 <!--					<a class="btn w-100 btn-outline-light" th:href="@{/plusmemberboard/new}">新規募集する</a>-->
-<!--				</div>-->
+				</div>
 
 				<div class="panel panel-black">
 					<div class="panel-heading">
