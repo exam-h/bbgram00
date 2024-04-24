@@ -9,7 +9,16 @@
 	<div class="mb-new-wrapper" layout:fragment="contents">
 		<div class="container-fluid">
 			<div class="row justify-content-center">
+<!--				<div class="col-3">-->
+				
+<!--				</div>-->
+				
 				<div class="col-3">
+					<form th:action="@{/matchboard/search}">
+						<input type="search" name="keyword" placeholder="都道府県を入力してください。">
+						<input type="submit" value="検索">
+					</form>
+					<br>
 					<a class="btn w-100 btn-outline-light" th:href="@{/matchboard/new}">新規募集する</a>
 				</div>
 

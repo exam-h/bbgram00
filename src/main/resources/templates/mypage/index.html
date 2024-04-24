@@ -44,11 +44,11 @@
 					</div> 
 					<div class="col-md-4">
 						<a class="btn w-100 btn-outline-black text-white" th:href="@{/plusmemberboard}">メンバー募集掲示板へ行く</a>>
+						<th:block th:if="${teamform == null}">
 						<a class="btn w-100 btn-outline-black text-white" th:href="@{/teampage/new}">チームページを作成</a>
+						</th:block>
 					</div>
 				</div>
 			</div>
 		</div>
 	</body>
-
-</html>

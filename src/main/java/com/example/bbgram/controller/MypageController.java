@@ -72,7 +72,8 @@ public class MypageController {
 
 		Long userId = user.getUserId();
 		User myuser  = userrepository.findByUserId(userId);
-		List<Mypage> mypage = (List<Mypage>)repository.findAllByOrderByUpdatedAtDesc();
+		List<Mypage> mypage = (List<Mypage>)repository.findByUserOrderByUpdatedAtDesc(myuser);
+		//List<Mypage> mypage = myuser.getMypages();
 		MypageForm form = null;
 		//if(mypage!=null ){
 		if(mypage.size() != 0){//if(list.size() !== 0){

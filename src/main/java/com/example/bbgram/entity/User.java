@@ -13,6 +13,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -37,10 +38,10 @@ public class User extends AbstractEntity implements UserDetails, UserInf {
 		super();
 	}
 
-	public User(String email,  String password, Authority authority, String tel, String name,
-				String age,  String birthDate,String prefecture, String city, String experience,  
-				String position, String throwing, String batting, String introduction){
-		
+	public User(String email, String password, Authority authority, String tel, String name,
+			String age, String birthDate, String prefecture, String city, String experience,
+			String position, String throwing, String batting, String introduction) {
+
 		this.username = email;
 		this.password = password;
 		this.authority = authority;
@@ -55,59 +56,57 @@ public class User extends AbstractEntity implements UserDetails, UserInf {
 		this.throwing = throwing;
 		this.batting = batting;
 		this.introduction = introduction;
-		
+
 	}
 
 	@Id
 	@SequenceGenerator(name = "users_id_seq")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long userId;
-	
+
 	@Column(nullable = false, unique = true)
 	private String username;
 
 	@Column(nullable = false)
 	private String password;
 
-
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private Authority authority;
-	
 
 	@Column(nullable = false)
 	private String tel;
-	
+
 	@Column(nullable = false)
 	private String name;
-	
+
 	@Column(nullable = false)
 	private String age;
-	
+
 	@Column(nullable = false)
 	private String birthDate;
 
 	@Column(nullable = false)
 	private String prefecture;
-	
+
 	@Column(nullable = false)
 	private String city;
-		
+
 	@Column(nullable = false)
 	private String experience;
 	@Column(nullable = false)
-	
+
 	private String position;
-	
+
 	@Column(nullable = false)
 	private String throwing;
-	
+
 	@Column(nullable = false)
 	private String batting;
-	
+
 	@Column(nullable = false)
 	private String introduction;
-	
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		List<GrantedAuthority> authorities = new ArrayList<>();
@@ -134,8 +133,12 @@ public class User extends AbstractEntity implements UserDetails, UserInf {
 	public boolean isEnabled() {
 		return true;
 	}
-	
+
 	// UserとTeamの双方向の関係
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Team team;//↑のusertea.javaの水色の変数と一致しないといけない
+	private Team team;//↑のusertea.javaの水色の変数と一致しないといけない
+
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Mypage> mypages;
+
 }

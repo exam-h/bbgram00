@@ -24,4 +24,6 @@ public interface MbRepository extends JpaRepository<Mb, Long> {
 	 */
 	List<Mb> findAllByOrderByUpdatedAtDesc();
 	
+	List<Mb> findByPrefecture(String prefecture);
+	
 }

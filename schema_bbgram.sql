@@ -99,3 +99,4 @@ CREATE TABLE IF NOT EXISTS memberboards (
   updated_at TIMESTAMP NOT NULL, 
   PRIMARY KEY (id)
 );
+

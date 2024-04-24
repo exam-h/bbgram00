@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,7 +33,8 @@ public class Mypage extends AbstractEntity implements Serializable {
 	private String path;
 	
 
-	@ManyToOne
-	@JoinColumn(name = "Id", insertable = false, updatable = false)
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "userId", insertable = false, updatable = false)
 	private User user;
+	
 }
