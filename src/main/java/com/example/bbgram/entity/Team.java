@@ -95,4 +95,7 @@ public class Team extends AbstractEntity {
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Pm> pms;
     
+    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Teampage> teampages;
+    
 }

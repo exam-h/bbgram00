@@ -64,8 +64,8 @@ public class TeampageController {
 		Authentication authentication = (Authentication) principal;
 		//TeamInf team = (TeamInf) authentication.getPrincipal();
 		Team team = Teamrepository.findById(Long.parseLong(id)).get();
-		List<Teampage> teampage = (List<Teampage>)repository.findByTeamIdOrderByUpdatedAtDesc(Long.parseLong(id));
-		
+		//List<Teampage> teampage = (List<Teampage>)repository.findByTeamIdOrderByUpdatedAtDesc(Long.parseLong(id));
+		List<Teampage> teampage = team.getTeampages();
 		TeampageForm form = null;
 		if(teampage.size() != 0){//if(list.size() !== 0){
 			Teampage image = teampage.get(0);
